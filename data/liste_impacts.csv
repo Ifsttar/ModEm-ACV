@@ -1,0 +1,34 @@
+Type;Indicators;Units;Methods;Abrev;Conv_OLCA
+Climat;Changement climatique;g CO2-eq;Impact World+;GWP;1000
+Atteinte à la santé;Formation de particules fines;g PM2.5-eq;Impact World+;PMF;1000
+Atteinte à la santé;Formation d'oxydants photochimiques;g COVNM-eq;Impact World+;POF;1000
+Atteinte à la santé;Appauvrissement de la couche d'ozone;g CFC-11-eq;Impact World+;Ozon;1000
+Atteinte à la santé;Toxicité humaine;DALY;Impact World+;Htox;1
+Atteinte à la santé;Radiations ionisantes;Bq C-14 eq;Impact World+;Ion;1
+Déterioration des écosystèmes;Ecotoxicité;PDF.m².an;Impact World+;Ecotox;1
+Déterioration des écosystèmes;Eutrophisation;PDF.m².an;Impact World+;Eutro;1
+Déterioration des écosystèmes;Acidification;g SO2-eq;Impact World+;Acid;1000
+Ressources;Ressources minérales;g ôté;Impact World+;Miner;1000
+Ressources;Occupation du sol;m²a;Impact World+;Sol;1
+Ressources;Raréfaction en eau;m3;Impact World+;Eau;1
+Déchets;Déchets;kg;EDIP 2003;Waste;1
+Déchets;Déchets radioactifs;kg;EDIP 2003;RadWaste;1
+Energies primaires;Energies primaires fossiles (hors nucléaire);MJ;Cumulative Energy Demand;NRJf;1
+Energies primaires;Energie primaire nucléaire;MJ;Cumulative Energy Demand;NRJn;1
+Energies primaires;Energies primaires renouvelables;MJ;Cumulative Energy Demand;NRJr;1
+Dommages;Santé humaine;DALY;Impact World+;Sante;1
+Dommages;Atteinte à la biodiversité;PDF.m².an;Impact World+;Biodiv;1
+Santé humaine;Santé humaine, Changement climatique;DALY;Impact World+;Sante_GWP;1
+Santé humaine;Santé humaine, Formation de particules fines;DALY;Impact World+;Sante_PMF;1
+Santé humaine;Santé humaine, Formation d'oxydants photochimiques;DALY;Impact World+;Sante_POF;1
+Santé humaine;Santé humaine, Appauvrissement de la couche d'ozone;DALY;Impact World+;Sante_Ozon;1
+Santé humaine;Santé humaine, Toxicité humaine;DALY;Impact World+;Sante_Htox;1
+Santé humaine;Santé humaine, Radiations ionisantes;DALY;Impact World+;Sante_Ion;1
+Santé humaine;Santé humaine, Ressource en eau;DALY;Impact World+;Sante_Eau;1
+Atteinte à la biodiversité;Biodiversité, Changement climatique;PDF.m².an;Impact World+;Biodiv_GWP;1
+Atteinte à la biodiversité;Biodiversité, Radiations ionisantes;PDF.m².an;Impact World+;Biodiv_Ion;1
+Atteinte à la biodiversité;Biodiversité, Ecotoxicité;PDF.m².an;Impact World+;Biodiv_Ecotox;1
+Atteinte à la biodiversité;Biodiversité, Eutrophisation;PDF.m².an;Impact World+;Biodiv_Eutro;1
+Atteinte à la biodiversité;Biodiversité, Acidification;PDF.m².an;Impact World+;Biodiv_Acid;1
+Atteinte à la biodiversité;Biodiversité, Utilisation du sol;PDF.m².an;Impact World+;Biodiv_Sol;1
+Atteinte à la biodiversité;Biodiversité, Ressource en eau;PDF.m².an;Impact World+;Biodiv_Eau;1

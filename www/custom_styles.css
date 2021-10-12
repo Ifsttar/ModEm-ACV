@@ -1,0 +1,97 @@
+/* -- NAVBAR -- */
+
+.navbar-default {
+    background-color: white;
+} /* partie nous couverte par les menus (à gauche et à droite) */
+
+.navbar-default:hover {
+    background-color: white;
+} /* partie nous couverte par les menus (à gauche et à droite), au passage de la souris */
+
+.navbar-header {
+    background-color: white;
+  } /* partie gauche du header (sous l'image logo) */
+
+app_navbar {
+  background-color:white;
+  padding-top: 1%;
+} /* partie entourant chaque menu */
+
+.navbar-default .navbar-nav>.active>a {
+  color: #E7502B;
+  background-color: white;
+  border-bottom: 3px solid #E7502B;
+  padding-bottom: 20px;
+  padding-top: 30px;
+} /* menu actif */
+
+.navbar-default .navbar-nav>.active>a:hover {
+  background-color: white;
+  padding-bottom: 20px;
+  padding-top: 30px;
+} /* menu actif au passage de la souris */
+
+.navbar-default .navbar-nav>li>a {
+  color: #464749;
+  font-weight:normal;
+  background-color: white;
+  font-size:1.2em;
+  padding-bottom: 20px;
+  padding-top: 30px;
+} /* menus non actifs */
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #464749;
+  font-weight:normal;
+  border-bottom: 3px solid #E7502B;
+  background-color: white;
+  padding-bottom: 20px;
+  padding-top: 30px;
+  } /* menus non actifs au passage de la souris */
+
+
+.navbar-default .navbar-brand {
+    color: #464749;
+    font-size:1.3em;
+    font-weight: normal;
+    margin-left:50px;
+    margin-right: 150px;
+    height:95px;
+    width:240px;
+    background-color:white;
+} /* réglage de la taille du navbar */
+ 
+
+/* Police des titres */
+
+body {
+  background-color: #fff;
+  font-size:1.4em;
+}
+
+/* -- Téléchargement des fichiers 'pdf et excel' -- */
+
+.btn-download-doc {
+    color: #333;
+    font-size: 2em;
+    box-shadow: 5px 5px 5px #e7e7e7;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+.btn-download {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    padding: 10px 10px 10px 10px;
+    font-size: 1.3em;
+}
+
+.butt1 {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+    padding: 10px 10px 10px 10px;
+    font-size: 1.3em;
+}
+
+summary h3{ display: inline-block; }

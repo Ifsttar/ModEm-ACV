@@ -1,0 +1,6 @@
+### Mentions légales
+
+Ce tableau de bord est ...
+
+## Présentation du site
+Ce site présente...

@@ -1,0 +1,977 @@
+Category;Fuel;Segment;Annee;Euro.Standard;Technology;Part;RedNOxEuro6;M_carros;M_moteur_ICE;M_moteur_Elec;M_batterie;DV_veh;DV_batterie
+Passenger Cars;Petrol;Mini;1993;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;1994;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;1995;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;1996;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;1997;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;1998;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;1999;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2000;Euro 2;;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2001;Euro 3;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2001;Euro 3;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2002;Euro 3;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2002;Euro 3;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2003;Euro 3;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2003;Euro 3;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2004;Euro 3;GDI;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2004;Euro 3;PFI;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2005;Euro 3;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2005;Euro 3;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2006;Euro 4;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2006;Euro 4;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2007;Euro 4;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2007;Euro 4;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2008;Euro 4;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2008;Euro 4;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2009;Euro 4;GDI;0,0002;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2009;Euro 4;PFI;0,0002;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2010;Euro 4;GDI;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2010;Euro 4;PFI;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2011;Euro 5;GDI;0,0002;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2011;Euro 5;PFI;0,0002;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2012;Euro 5;GDI;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2012;Euro 5;PFI;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2013;Euro 5;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2013;Euro 5;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2014;Euro 5;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2014;Euro 5;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2015;Euro 6b;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2015;Euro 6b;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2015;Euro 6b;GDI+GPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2016;Euro 6b;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2016;Euro 6b;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2016;Euro 6b;GDI+GPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2017;Euro 6b;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2017;Euro 6b;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2017;Euro 6b;GDI+GPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2018;Euro 6c;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2018;Euro 6c;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2018;Euro 6c;GDI+GPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2019;Euro 6c;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2019;Euro 6c;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2019;Euro 6c;GDI+GPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2020;Euro 6c;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2020;Euro 6c;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2020;Euro 6c;GDI+GPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2021;Euro 6d;GDI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2021;Euro 6d;PFI;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Mini;2021;Euro 6d;GDI+GPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Petrol;Small;1993;Euro 1;;0,0013;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;1994;Euro 1;;0,0003;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;1995;Euro 1;;0,0005;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;1996;Euro 1;;0,0005;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;1997;Euro 2;;0,0006;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;1998;Euro 2;;0,0009;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;1999;Euro 2;;0,001;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2000;Euro 2;;0,0021;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2001;Euro 3;GDI;0,0012;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2001;Euro 3;PFI;0,0012;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2002;Euro 3;GDI;0,0018;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2002;Euro 3;PFI;0,0018;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2003;Euro 3;GDI;0,0014;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2003;Euro 3;PFI;0,0014;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2004;Euro 3;GDI;0,0027;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2004;Euro 3;PFI;0,0027;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2005;Euro 3;GDI;0,0033;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2005;Euro 3;PFI;0,0033;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2006;Euro 4;GDI;0,005;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2006;Euro 4;PFI;0,005;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2007;Euro 4;GDI;0,0033;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2007;Euro 4;PFI;0,0033;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2008;Euro 4;GDI;0,0056;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2008;Euro 4;PFI;0,0056;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2009;Euro 4;GDI;0,0064;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2009;Euro 4;PFI;0,0064;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2010;Euro 4;GDI;0,0087;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2010;Euro 4;PFI;0,0086;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2011;Euro 5;GDI;0,0069;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2011;Euro 5;PFI;0,0069;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2012;Euro 5;GDI;0,0061;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2012;Euro 5;PFI;0,0061;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2013;Euro 5;GDI;0,0053;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2013;Euro 5;PFI;0,0053;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2014;Euro 5;GDI;0,0067;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2014;Euro 5;PFI;0,0068;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2015;Euro 6b;GDI;0,0042;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2015;Euro 6b;PFI;0,0042;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2015;Euro 6b;GDI+GPF;0,0042;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2016;Euro 6b;GDI;0,0041;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2016;Euro 6b;PFI;0,0041;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2016;Euro 6b;GDI+GPF;0,0041;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2017;Euro 6b;GDI;0,0039;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2017;Euro 6b;PFI;0,0039;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2017;Euro 6b;GDI+GPF;0,0039;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2018;Euro 6c;GDI;0,0042;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2018;Euro 6c;PFI;0,0042;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2018;Euro 6c;GDI+GPF;0,0042;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2019;Euro 6c;GDI;0,0055;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2019;Euro 6c;PFI;0,0055;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2019;Euro 6c;GDI+GPF;0,0055;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2020;Euro 6c;GDI;0,0031;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2020;Euro 6c;PFI;0,0031;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2020;Euro 6c;GDI+GPF;0,0031;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2021;Euro 6d;GDI;0,0005;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2021;Euro 6d;PFI;0,0005;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Small;2021;Euro 6d;GDI+GPF;0,0005;0;840;360;0;0;150000;100000
+Passenger Cars;Petrol;Medium;1993;Euro 1;;0,0006;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;1994;Euro 1;;0,0003;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;1995;Euro 1;;0,0002;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;1996;Euro 1;;0,0003;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;1997;Euro 2;;0,0003;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;1998;Euro 2;;0,0006;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;1999;Euro 2;;0,0006;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2000;Euro 2;;0,001;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2001;Euro 3;GDI;0,001;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2001;Euro 3;PFI;0,001;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2002;Euro 3;GDI;0,001;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2002;Euro 3;PFI;0,001;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2003;Euro 3;GDI;0,0007;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2003;Euro 3;PFI;0,0007;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2004;Euro 3;GDI;0,0009;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2004;Euro 3;PFI;0,0009;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2005;Euro 3;GDI;0,0012;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2005;Euro 3;PFI;0,0012;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2006;Euro 4;GDI;0,0021;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2006;Euro 4;PFI;0,0021;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2007;Euro 4;GDI;0,0025;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2007;Euro 4;PFI;0,0025;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2008;Euro 4;GDI;0,0031;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2008;Euro 4;PFI;0,0031;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2009;Euro 4;GDI;0,0047;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2009;Euro 4;PFI;0,0047;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2010;Euro 4;GDI;0,0059;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2010;Euro 4;PFI;0,0059;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2011;Euro 5;GDI;0,0044;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2011;Euro 5;PFI;0,0044;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2012;Euro 5;GDI;0,0052;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2012;Euro 5;PFI;0,0052;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2013;Euro 5;GDI;0,0027;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2013;Euro 5;PFI;0,0027;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2014;Euro 5;GDI;0,005;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2014;Euro 5;PFI;0,005;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2015;Euro 6b;GDI;0,0027;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2015;Euro 6b;PFI;0,0027;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2015;Euro 6b;GDI+GPF;0,0027;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2016;Euro 6b;GDI;0,0024;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2016;Euro 6b;PFI;0,0024;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2016;Euro 6b;GDI+GPF;0,0024;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2017;Euro 6b;GDI;0,002;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2017;Euro 6b;PFI;0,002;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2017;Euro 6b;GDI+GPF;0,002;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2018;Euro 6c;GDI;0,0012;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2018;Euro 6c;PFI;0,0012;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2018;Euro 6c;GDI+GPF;0,0012;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2019;Euro 6c;GDI;0,0012;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2019;Euro 6c;PFI;0,0012;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2019;Euro 6c;GDI+GPF;0,0012;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2020;Euro 6c;GDI;0,001;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2020;Euro 6c;PFI;0,001;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2020;Euro 6c;GDI+GPF;0,001;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2021;Euro 6d;GDI;0;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2021;Euro 6d;PFI;0;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Medium;2021;Euro 6d;GDI+GPF;0;0;980;420;0;0;150000;100000
+Passenger Cars;Petrol;Large;1993;Euro 1;;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;1994;Euro 1;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;1995;Euro 1;;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;1996;Euro 1;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;1997;Euro 2;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;1998;Euro 2;;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;1999;Euro 2;;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2000;Euro 2;;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2001;Euro 3;GDI;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2001;Euro 3;PFI;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2002;Euro 3;GDI;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2002;Euro 3;PFI;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2003;Euro 3;GDI;0,0005;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2003;Euro 3;PFI;0,0005;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2004;Euro 3;GDI;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2004;Euro 3;PFI;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2005;Euro 3;GDI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2005;Euro 3;PFI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2006;Euro 4;GDI;0,0008;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2006;Euro 4;PFI;0,0008;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2007;Euro 4;GDI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2007;Euro 4;PFI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2008;Euro 4;GDI;0,0012;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2008;Euro 4;PFI;0,0012;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2009;Euro 4;GDI;0,0005;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2009;Euro 4;PFI;0,0005;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2010;Euro 4;GDI;0,0007;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2010;Euro 4;PFI;0,0007;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2011;Euro 5;GDI;0,0007;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2011;Euro 5;PFI;0,0007;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2012;Euro 5;GDI;0,0011;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2012;Euro 5;PFI;0,0011;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2013;Euro 5;GDI;0,0007;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2013;Euro 5;PFI;0,0007;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2014;Euro 5;GDI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2014;Euro 5;PFI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2015;Euro 6b;GDI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2015;Euro 6b;PFI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2015;Euro 6b;GDI+GPF;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2016;Euro 6b;GDI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2016;Euro 6b;PFI;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2016;Euro 6b;GDI+GPF;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2017;Euro 6b;GDI;0,0006;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2017;Euro 6b;PFI;0,0006;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2017;Euro 6b;GDI+GPF;0,0006;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2018;Euro 6c;GDI;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2018;Euro 6c;PFI;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2018;Euro 6c;GDI+GPF;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2019;Euro 6c;GDI;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2019;Euro 6c;PFI;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2019;Euro 6c;GDI+GPF;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2020;Euro 6c;GDI;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2020;Euro 6c;PFI;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2020;Euro 6c;GDI+GPF;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2021;Euro 6d;GDI;0;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2021;Euro 6d;PFI;0;0;1120;480;0;0;150000;100000
+Passenger Cars;Petrol;Large;2021;Euro 6d;GDI+GPF;0;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Mini;1993;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;1994;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;1995;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;1996;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;1997;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;1998;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;1999;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2000;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2001;Euro 3;DPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2002;Euro 3;DPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2003;Euro 3;DPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2004;Euro 3;DPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2005;Euro 3;DPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2006;Euro 4;DPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2007;Euro 4;DPF;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2008;Euro 4;DPF;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2009;Euro 4;DPF;0;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2010;Euro 4;DPF;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2011;Euro 5;DPF;0,0002;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2012;Euro 5;DPF;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2013;Euro 5;DPF;0,0002;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2014;Euro 5;DPF;0,0001;0;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2015;Euro 6b;DPF;0,0002;0,18;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2015;Euro 6b;DPF+SCR;0,0002;0,18;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2015;Euro 6b;LNT+DPF;0,0002;0,18;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2016;Euro 6b;DPF;0,0001;0,18;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2016;Euro 6b;DPF+SCR;0,0001;0,18;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2016;Euro 6b;LNT+DPF;0,0001;0,18;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2017;Euro 6b;DPF;0,0001;0,18;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2017;Euro 6b;DPF+SCR;0,0001;0,18;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2017;Euro 6b;LNT+DPF;0,0001;0,18;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2018;Euro 6c;DPF;0,0001;0,37;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2018;Euro 6c;DPF+SCR;0,0001;0,37;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2018;Euro 6c;LNT+DPF;0,0001;0,37;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2019;Euro 6c;DPF;0,0002;0,37;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2019;Euro 6c;DPF+SCR;0,0002;0,37;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2019;Euro 6c;LNT+DPF;0,0002;0,37;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2020;Euro 6c;DPF;0,0001;0,37;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2020;Euro 6c;DPF+SCR;0,0001;0,37;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2020;Euro 6c;LNT+DPF;0,0001;0,37;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2021;Euro 6d;DPF;0;0,69;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2021;Euro 6d;DPF+SCR;0;0,69;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Mini;2021;Euro 6d;LNT+DPF;0;0,69;700;300;0;0;150000;100000
+Passenger Cars;Diesel;Small;1993;Euro 1;;0,0004;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;1994;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;1995;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;1996;Euro 1;;0,0002;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;1997;Euro 2;;0,0002;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;1998;Euro 2;;0,0002;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;1999;Euro 2;;0,001;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2000;Euro 2;;0,0008;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2001;Euro 3;DPF;0,0009;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2002;Euro 3;DPF;0,0014;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2003;Euro 3;DPF;0,0012;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2004;Euro 3;DPF;0,0025;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2005;Euro 3;DPF;0,0028;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2006;Euro 4;DPF;0,003;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2007;Euro 4;DPF;0,0018;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2008;Euro 4;DPF;0,0039;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2009;Euro 4;DPF;0,0043;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2010;Euro 4;DPF;0,0125;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2011;Euro 5;DPF;0,0113;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2012;Euro 5;DPF;0,0105;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2013;Euro 5;DPF;0,0127;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2014;Euro 5;DPF;0,0177;0;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2015;Euro 6b;DPF;0,0047;0,18;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2015;Euro 6b;DPF+SCR;0,0047;0,18;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2015;Euro 6b;LNT+DPF;0,0047;0,18;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2016;Euro 6b;DPF;0,0058;0,18;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2016;Euro 6b;DPF+SCR;0,0058;0,18;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2016;Euro 6b;LNT+DPF;0,0058;0,18;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2017;Euro 6b;DPF;0,0074;0,18;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2017;Euro 6b;DPF+SCR;0,0074;0,18;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2017;Euro 6b;LNT+DPF;0,0074;0,18;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2018;Euro 6c;DPF;0,0081;0,37;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2018;Euro 6c;DPF+SCR;0,008;0,37;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2018;Euro 6c;LNT+DPF;0,008;0,37;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2019;Euro 6c;DPF;0,0074;0,37;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2019;Euro 6c;DPF+SCR;0,0074;0,37;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2019;Euro 6c;LNT+DPF;0,0074;0,37;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2020;Euro 6c;DPF;0,0057;0,37;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2020;Euro 6c;DPF+SCR;0,0057;0,37;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2020;Euro 6c;LNT+DPF;0,0057;0,37;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2021;Euro 6d;DPF;0,0005;0,69;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2021;Euro 6d;DPF+SCR;0,0005;0,69;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Small;2021;Euro 6d;LNT+DPF;0,0005;0,69;840;360;0;0;150000;100000
+Passenger Cars;Diesel;Medium;1993;Euro 1;;0,0003;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;1994;Euro 1;;0;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;1995;Euro 1;;0,0001;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;1996;Euro 1;;0,0001;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;1997;Euro 2;;0,0002;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;1998;Euro 2;;0,0002;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;1999;Euro 2;;0,0007;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2000;Euro 2;;0,0012;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2001;Euro 3;DPF;0,0017;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2002;Euro 3;DPF;0,0033;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2003;Euro 3;DPF;0,003;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2004;Euro 3;DPF;0,0046;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2005;Euro 3;DPF;0,0044;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2006;Euro 4;DPF;0,0069;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2007;Euro 4;DPF;0,0063;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2008;Euro 4;DPF;0,0094;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2009;Euro 4;DPF;0,0098;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2010;Euro 4;DPF;0,0158;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2011;Euro 5;DPF;0,015;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2012;Euro 5;DPF;0,017;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2013;Euro 5;DPF;0,0187;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2014;Euro 5;DPF;0,0283;0;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2015;Euro 6b;DPF;0,0089;0,18;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2015;Euro 6b;DPF+SCR;0,0089;0,18;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2015;Euro 6b;LNT+DPF;0,0089;0,18;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2016;Euro 6b;DPF;0,0114;0,18;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2016;Euro 6b;DPF+SCR;0,0114;0,18;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2016;Euro 6b;LNT+DPF;0,0114;0,18;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2017;Euro 6b;DPF;0,0119;0,18;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2017;Euro 6b;DPF+SCR;0,0119;0,18;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2017;Euro 6b;LNT+DPF;0,0119;0,18;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2018;Euro 6c;DPF;0,0146;0,37;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2018;Euro 6c;DPF+SCR;0,0147;0,37;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2018;Euro 6c;LNT+DPF;0,0147;0,37;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2019;Euro 6c;DPF;0,0138;0,37;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2019;Euro 6c;DPF+SCR;0,0138;0,37;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2019;Euro 6c;LNT+DPF;0,0138;0,37;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2020;Euro 6c;DPF;0,0091;0,37;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2020;Euro 6c;DPF+SCR;0,0091;0,37;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2020;Euro 6c;LNT+DPF;0,0091;0,37;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2021;Euro 6d;DPF;0,0005;0,69;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2021;Euro 6d;DPF+SCR;0,0005;0,69;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Medium;2021;Euro 6d;LNT+DPF;0,0005;0,69;980;420;0;0;150000;100000
+Passenger Cars;Diesel;Large;1993;Euro 1;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;1994;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;1995;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;1996;Euro 1;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;1997;Euro 2;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;1998;Euro 2;;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;1999;Euro 2;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2000;Euro 2;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2001;Euro 3;DPF;0,0005;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2002;Euro 3;DPF;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2003;Euro 3;DPF;0,0004;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2004;Euro 3;DPF;0,0005;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2005;Euro 3;DPF;0,0013;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2006;Euro 4;DPF;0,0007;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2007;Euro 4;DPF;0,0005;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2008;Euro 4;DPF;0,0006;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2009;Euro 4;DPF;0,001;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2010;Euro 4;DPF;0,0013;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2011;Euro 5;DPF;0,002;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2012;Euro 5;DPF;0,0023;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2013;Euro 5;DPF;0,0042;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2014;Euro 5;DPF;0,0065;0;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2015;Euro 6b;DPF;0,0018;0,18;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2015;Euro 6b;DPF+SCR;0,0018;0,18;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2015;Euro 6b;LNT+DPF;0,0018;0,18;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2016;Euro 6b;DPF;0,0025;0,18;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2016;Euro 6b;DPF+SCR;0,0025;0,18;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2016;Euro 6b;LNT+DPF;0,0025;0,18;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2017;Euro 6b;DPF;0,0026;0,18;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2017;Euro 6b;DPF+SCR;0,0026;0,18;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2017;Euro 6b;LNT+DPF;0,0026;0,18;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2018;Euro 6c;DPF;0,0036;0,37;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2018;Euro 6c;DPF+SCR;0,0036;0,37;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2018;Euro 6c;LNT+DPF;0,0036;0,37;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2019;Euro 6c;DPF;0,0032;0,37;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2019;Euro 6c;DPF+SCR;0,0032;0,37;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2019;Euro 6c;LNT+DPF;0,0032;0,37;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2020;Euro 6c;DPF;0,0012;0,37;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2020;Euro 6c;DPF+SCR;0,0012;0,37;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2020;Euro 6c;LNT+DPF;0,0012;0,37;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2021;Euro 6d;DPF;0,0003;0,69;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2021;Euro 6d;DPF+SCR;0,0003;0,69;1120;480;0;0;150000;100000
+Passenger Cars;Diesel;Large;2021;Euro 6d;LNT+DPF;0,0003;0,69;1120;480;0;0;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;1993;Euro 1;;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;1994;Euro 1;;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;1995;Euro 1;;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;1996;Euro 1;;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;1997;Euro 2;;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;1998;Euro 2;;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;1999;Euro 2;;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2000;Euro 2;;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2001;Euro 3;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2001;Euro 3;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2002;Euro 3;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2002;Euro 3;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2003;Euro 3;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2003;Euro 3;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2004;Euro 3;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2004;Euro 3;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2005;Euro 3;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2005;Euro 3;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2006;Euro 4;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2006;Euro 4;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2007;Euro 4;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2007;Euro 4;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2008;Euro 4;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2008;Euro 4;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2009;Euro 4;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2009;Euro 4;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2010;Euro 4;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2010;Euro 4;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2011;Euro 5;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2011;Euro 5;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2012;Euro 5;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2012;Euro 5;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2013;Euro 5;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2013;Euro 5;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2014;Euro 5;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2014;Euro 5;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2015;Euro 6b;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2015;Euro 6b;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2015;Euro 6b;GDI+GPF;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2016;Euro 6b;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2016;Euro 6b;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2016;Euro 6b;GDI+GPF;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2017;Euro 6b;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2017;Euro 6b;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2017;Euro 6b;GDI+GPF;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2018;Euro 6c;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2018;Euro 6c;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2018;Euro 6c;GDI+GPF;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2019;Euro 6c;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2019;Euro 6c;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2019;Euro 6c;GDI+GPF;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2020;Euro 6c;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2020;Euro 6c;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2020;Euro 6c;GDI+GPF;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2021;Euro 6d;GDI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2021;Euro 6d;PFI;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Mini;2021;Euro 6d;GDI+GPF;0;0;700;300;120;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;1993;Euro 1;;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;1994;Euro 1;;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;1995;Euro 1;;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;1996;Euro 1;;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;1997;Euro 2;;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;1998;Euro 2;;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;1999;Euro 2;;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2000;Euro 2;;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2001;Euro 3;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2001;Euro 3;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2002;Euro 3;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2002;Euro 3;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2003;Euro 3;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2003;Euro 3;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2004;Euro 3;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2004;Euro 3;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2005;Euro 3;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2005;Euro 3;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2006;Euro 4;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2006;Euro 4;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2007;Euro 4;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2007;Euro 4;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2008;Euro 4;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2008;Euro 4;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2009;Euro 4;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2009;Euro 4;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2010;Euro 4;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2010;Euro 4;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2011;Euro 5;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2011;Euro 5;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2012;Euro 5;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2012;Euro 5;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2013;Euro 5;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2013;Euro 5;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2014;Euro 5;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2014;Euro 5;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2015;Euro 6b;GDI;0,0001;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2015;Euro 6b;PFI;0,0001;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2015;Euro 6b;GDI+GPF;0,0001;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2016;Euro 6b;GDI;0,0001;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2016;Euro 6b;PFI;0,0001;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2016;Euro 6b;GDI+GPF;0,0001;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2017;Euro 6b;GDI;0,0001;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2017;Euro 6b;PFI;0,0001;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2017;Euro 6b;GDI+GPF;0,0001;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2018;Euro 6c;GDI;0,0002;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2018;Euro 6c;PFI;0,0002;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2018;Euro 6c;GDI+GPF;0,0002;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2019;Euro 6c;GDI;0,0002;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2019;Euro 6c;PFI;0,0002;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2019;Euro 6c;GDI+GPF;0,0002;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2020;Euro 6c;GDI;0,0002;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2020;Euro 6c;PFI;0,0002;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2020;Euro 6c;GDI+GPF;0,0002;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2021;Euro 6d;GDI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2021;Euro 6d;PFI;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Small;2021;Euro 6d;GDI+GPF;0;0;840;360;144;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;1993;Euro 1;;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;1994;Euro 1;;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;1995;Euro 1;;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;1996;Euro 1;;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;1997;Euro 2;;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;1998;Euro 2;;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;1999;Euro 2;;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2000;Euro 2;;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2001;Euro 3;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2001;Euro 3;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2002;Euro 3;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2002;Euro 3;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2003;Euro 3;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2003;Euro 3;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2004;Euro 3;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2004;Euro 3;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2005;Euro 3;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2005;Euro 3;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2006;Euro 4;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2006;Euro 4;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2007;Euro 4;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2007;Euro 4;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2008;Euro 4;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2008;Euro 4;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2009;Euro 4;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2009;Euro 4;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2010;Euro 4;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2010;Euro 4;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2011;Euro 5;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2011;Euro 5;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2012;Euro 5;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2012;Euro 5;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2013;Euro 5;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2013;Euro 5;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2014;Euro 5;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2014;Euro 5;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2015;Euro 6b;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2015;Euro 6b;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2015;Euro 6b;GDI+GPF;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2016;Euro 6b;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2016;Euro 6b;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2016;Euro 6b;GDI+GPF;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2017;Euro 6b;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2017;Euro 6b;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2017;Euro 6b;GDI+GPF;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2018;Euro 6c;GDI;0,0001;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2018;Euro 6c;PFI;0,0001;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2018;Euro 6c;GDI+GPF;0,0001;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2019;Euro 6c;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2019;Euro 6c;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2019;Euro 6c;GDI+GPF;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2020;Euro 6c;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2020;Euro 6c;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2020;Euro 6c;GDI+GPF;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2021;Euro 6d;GDI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2021;Euro 6d;PFI;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Medium;2021;Euro 6d;GDI+GPF;0;0;980;420;168;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;1993;Euro 1;;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;1994;Euro 1;;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;1995;Euro 1;;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;1996;Euro 1;;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;1997;Euro 2;;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;1998;Euro 2;;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;1999;Euro 2;;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2000;Euro 2;;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2001;Euro 3;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2001;Euro 3;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2002;Euro 3;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2002;Euro 3;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2003;Euro 3;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2003;Euro 3;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2004;Euro 3;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2004;Euro 3;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2005;Euro 3;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2005;Euro 3;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2006;Euro 4;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2006;Euro 4;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2007;Euro 4;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2007;Euro 4;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2008;Euro 4;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2008;Euro 4;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2009;Euro 4;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2009;Euro 4;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2010;Euro 4;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2010;Euro 4;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2011;Euro 5;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2011;Euro 5;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2012;Euro 5;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2012;Euro 5;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2013;Euro 5;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2013;Euro 5;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2014;Euro 5;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2014;Euro 5;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2015;Euro 6b;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2015;Euro 6b;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2015;Euro 6b;GDI+GPF;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2016;Euro 6b;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2016;Euro 6b;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2016;Euro 6b;GDI+GPF;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2017;Euro 6b;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2017;Euro 6b;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2017;Euro 6b;GDI+GPF;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2018;Euro 6c;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2018;Euro 6c;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2018;Euro 6c;GDI+GPF;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2019;Euro 6c;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2019;Euro 6c;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2019;Euro 6c;GDI+GPF;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2020;Euro 6c;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2020;Euro 6c;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2020;Euro 6c;GDI+GPF;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2021;Euro 6d;GDI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2021;Euro 6d;PFI;0;0;1120;480;192;80;150000;100000
+Passenger Cars;Petrol Hybrid;Large;2021;Euro 6d;GDI+GPF;0;0;1120;480;192;80;150000;100000
+Passenger Cars;LPG;Mini;1993;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;1994;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;1995;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;1996;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;1997;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;1998;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;1999;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2000;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2001;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2002;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2003;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2004;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2005;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2006;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2007;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2008;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2009;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2010;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2011;Euro 5;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2012;Euro 5;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2013;Euro 5;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2014;Euro 5;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2015;Euro 6b;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2016;Euro 6b;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2017;Euro 6b;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2018;Euro 6c;;0,0004;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2019;Euro 6c;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2020;Euro 6c;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Mini;2021;Euro 6d;;0;0;700;300;0;0;150000;100000
+Passenger Cars;LPG;Small;1993;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;1994;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;1995;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;1996;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;1997;Euro 2;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;1998;Euro 2;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;1999;Euro 2;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2000;Euro 2;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2001;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2002;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2003;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2004;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2005;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2006;Euro 4;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2007;Euro 4;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2008;Euro 4;;0,0001;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2009;Euro 4;;0,0001;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2010;Euro 4;;0,0001;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2011;Euro 5;;0,0001;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2012;Euro 5;;0,0001;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2013;Euro 5;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2014;Euro 5;;0,0002;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2015;Euro 6b;;0,0001;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2016;Euro 6b;;0,0004;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2017;Euro 6b;;0,0002;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2018;Euro 6c;;0,0001;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2019;Euro 6c;;0,0004;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2020;Euro 6c;;0,001;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Small;2021;Euro 6d;;0;0;840;360;0;0;150000;100000
+Passenger Cars;LPG;Medium;1993;Euro 1;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;1994;Euro 1;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;1995;Euro 1;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;1996;Euro 1;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;1997;Euro 2;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;1998;Euro 2;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;1999;Euro 2;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2000;Euro 2;;0,0001;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2001;Euro 3;;0,0001;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2002;Euro 3;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2003;Euro 3;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2004;Euro 3;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2005;Euro 3;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2006;Euro 4;;0,0001;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2007;Euro 4;;0,0002;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2008;Euro 4;;0,0003;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2009;Euro 4;;0,0001;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2010;Euro 4;;0,0002;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2011;Euro 5;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2012;Euro 5;;0,0003;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2013;Euro 5;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2014;Euro 5;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2015;Euro 6b;;0,0001;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2016;Euro 6b;;0,0002;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2017;Euro 6b;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2018;Euro 6c;;0,0003;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2019;Euro 6c;;0,0001;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2020;Euro 6c;;0,0001;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Medium;2021;Euro 6d;;0;0;980;420;0;0;150000;100000
+Passenger Cars;LPG;Large;1993;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;1994;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;1995;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;1996;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;1997;Euro 2;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;1998;Euro 2;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;1999;Euro 2;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2000;Euro 2;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2001;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2002;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2003;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2004;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2005;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2006;Euro 4;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2007;Euro 4;;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2008;Euro 4;;0,0002;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2009;Euro 4;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2010;Euro 4;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2011;Euro 5;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2012;Euro 5;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2013;Euro 5;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2014;Euro 5;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2015;Euro 6b;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2016;Euro 6b;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2017;Euro 6b;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2018;Euro 6c;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2019;Euro 6c;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2020;Euro 6c;;0,0001;0;1120;480;0;0;150000;100000
+Passenger Cars;LPG;Large;2021;Euro 6d;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Mini;1993;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;1994;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;1995;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;1996;Euro 1;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;1997;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;1998;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;1999;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2000;Euro 2;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2001;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2002;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2003;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2004;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2005;Euro 3;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2006;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2007;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2008;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2009;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2010;Euro 4;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2011;Euro 5;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2012;Euro 5;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2013;Euro 5;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2014;Euro 5;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2015;Euro 6b;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2016;Euro 6b;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2017;Euro 6b;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2018;Euro 6c;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2019;Euro 6c;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2020;Euro 6c;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Mini;2021;Euro 6d;;0;0;700;300;0;0;150000;100000
+Passenger Cars;CNG;Small;1993;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;1994;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;1995;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;1996;Euro 1;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;1997;Euro 2;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;1998;Euro 2;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;1999;Euro 2;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2000;Euro 2;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2001;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2002;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2003;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2004;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2005;Euro 3;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2006;Euro 4;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2007;Euro 4;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2008;Euro 4;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2009;Euro 4;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2010;Euro 4;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2011;Euro 5;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2012;Euro 5;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2013;Euro 5;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2014;Euro 5;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2015;Euro 6b;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2016;Euro 6b;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2017;Euro 6b;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2018;Euro 6c;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2019;Euro 6c;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2020;Euro 6c;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Small;2021;Euro 6d;;0;0;840;360;0;0;150000;100000
+Passenger Cars;CNG;Medium;1993;Euro 1;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;1994;Euro 1;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;1995;Euro 1;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;1996;Euro 1;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;1997;Euro 2;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;1998;Euro 2;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;1999;Euro 2;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2000;Euro 2;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2001;Euro 3;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2002;Euro 3;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2003;Euro 3;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2004;Euro 3;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2005;Euro 3;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2006;Euro 4;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2007;Euro 4;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2008;Euro 4;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2009;Euro 4;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2010;Euro 4;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2011;Euro 5;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2012;Euro 5;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2013;Euro 5;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2014;Euro 5;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2015;Euro 6b;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2016;Euro 6b;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2017;Euro 6b;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2018;Euro 6c;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2019;Euro 6c;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2020;Euro 6c;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Medium;2021;Euro 6d;;0;0;980;420;0;0;150000;100000
+Passenger Cars;CNG;Large;1993;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;1994;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;1995;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;1996;Euro 1;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;1997;Euro 2;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;1998;Euro 2;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;1999;Euro 2;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2000;Euro 2;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2001;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2002;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2003;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2004;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2005;Euro 3;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2006;Euro 4;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2007;Euro 4;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2008;Euro 4;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2009;Euro 4;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2010;Euro 4;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2011;Euro 5;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2012;Euro 5;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2013;Euro 5;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2014;Euro 5;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2015;Euro 6b;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2016;Euro 6b;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2017;Euro 6b;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2018;Euro 6c;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2019;Euro 6c;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2020;Euro 6c;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;CNG;Large;2021;Euro 6d;;0;0;1120;480;0;0;150000;100000
+Passenger Cars;Electric;Mini;1993;Euro 1;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;1994;Euro 1;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;1995;Euro 1;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;1996;Euro 1;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;1997;Euro 2;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;1998;Euro 2;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;1999;Euro 2;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2000;Euro 2;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2001;Euro 3;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2002;Euro 3;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2003;Euro 3;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2004;Euro 3;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2005;Euro 3;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2006;Euro 4;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2007;Euro 4;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2008;Euro 4;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2009;Euro 4;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2010;Euro 4;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2011;Euro 5;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2012;Euro 5;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2013;Euro 5;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2014;Euro 5;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2015;Euro 6b;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2016;Euro 6b;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2017;Euro 6b;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2018;Euro 6c;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2019;Euro 6c;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2020;Euro 6c;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Mini;2021;Euro 6d;;0;0;700;0;300;262;150000;100000
+Passenger Cars;Electric;Small;1993;Euro 1;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;1994;Euro 1;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;1995;Euro 1;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;1996;Euro 1;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;1997;Euro 2;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;1998;Euro 2;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;1999;Euro 2;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2000;Euro 2;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2001;Euro 3;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2002;Euro 3;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2003;Euro 3;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2004;Euro 3;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2005;Euro 3;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2006;Euro 4;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2007;Euro 4;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2008;Euro 4;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2009;Euro 4;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2010;Euro 4;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2011;Euro 5;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2012;Euro 5;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2013;Euro 5;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2014;Euro 5;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2015;Euro 6b;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2016;Euro 6b;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2017;Euro 6b;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2018;Euro 6c;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2019;Euro 6c;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2020;Euro 6c;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Small;2021;Euro 6d;;0;0;840;0;360;262;150000;100000
+Passenger Cars;Electric;Medium;1993;Euro 1;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;1994;Euro 1;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;1995;Euro 1;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;1996;Euro 1;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;1997;Euro 2;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;1998;Euro 2;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;1999;Euro 2;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2000;Euro 2;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2001;Euro 3;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2002;Euro 3;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2003;Euro 3;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2004;Euro 3;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2005;Euro 3;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2006;Euro 4;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2007;Euro 4;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2008;Euro 4;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2009;Euro 4;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2010;Euro 4;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2011;Euro 5;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2012;Euro 5;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2013;Euro 5;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2014;Euro 5;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2015;Euro 6b;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2016;Euro 6b;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2017;Euro 6b;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2018;Euro 6c;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2019;Euro 6c;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2020;Euro 6c;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Medium;2021;Euro 6d;;0;0;980;0;420;262;150000;100000
+Passenger Cars;Electric;Large;1993;Euro 1;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;1994;Euro 1;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;1995;Euro 1;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;1996;Euro 1;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;1997;Euro 2;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;1998;Euro 2;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;1999;Euro 2;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2000;Euro 2;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2001;Euro 3;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2002;Euro 3;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2003;Euro 3;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2004;Euro 3;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2005;Euro 3;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2006;Euro 4;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2007;Euro 4;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2008;Euro 4;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2009;Euro 4;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2010;Euro 4;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2011;Euro 5;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2012;Euro 5;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2013;Euro 5;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2014;Euro 5;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2015;Euro 6b;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2016;Euro 6b;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2017;Euro 6b;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2018;Euro 6c;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2019;Euro 6c;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2020;Euro 6c;;0;0;1120;0;480;262;150000;100000
+Passenger Cars;Electric;Large;2021;Euro 6d;;0;0;1120;0;480;262;150000;100000
