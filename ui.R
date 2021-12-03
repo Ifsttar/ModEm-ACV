@@ -3,38 +3,32 @@ library(shinycssloaders)
 library(shinyWidgets)
 library(shinydashboardPlus)
 library(shiny)
+library(shinyjs)
 source("libraries.R")
 source("functions_Config.R")
-# source("functions_analyses.R")
 source("Chargement_data.R")
 
 # Définition de l'UI : User Interface ####
 ui <- 
-  navbarPage(title = tagList(div(tags$img(src="logo_modemACV.png", width=350), style="padding-top:15px;margin-top:-40px;margin-left:0px;"),
+  tagList(useShinyjs(debug = TRUE),navbarPage(theme = "www/custom_styles.css",
+             title = tagList(div(tags$img(src="logo_modemACV2.png", width=200), style="padding-top:45px;margin-top:-40px;margin-left:0px;"),
                              tags$link(rel = "stylesheet", type = "text/css", href = "custom_styles.css")),
              windowTitle ="ModEm - ACV",
              id="tabactive",
              position = "fixed-top",
-             theme = "www/custom_styles.css",
              
              # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
              # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
              # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
              
              tabPanel("Configurateur", # TabPanel "Configurateur" ####
-                      style = "padding-top: 75px;",
+                      style = "padding-top: 120px;",
                       icon = icon("sliders-h"),
-                      # dashboardPagePlus(sidebar_fullCollapse = T,
                       dashboardPage(
-                                        #sidebar_fullCollapse = T,
-                                        #sidebar_background = "light",
                                         skin = "red",
-                                        # dashboardHeaderPlus(title = "ModEM-ACV", 
                                         dashboardHeader(title = "ModEM-ACV",
                                                             disable = T,
-                                                            # enable_rightsidebar = TRUE,
                                                             controlbarIcon = shiny::icon("gears")
-                                                            # rightSidebarIcon = "gears"
                                                             ),
                                         
                                         dashboardSidebar(
@@ -45,13 +39,8 @@ ui <-
                                             menuItem("Poids et équipements", tabName = "poidsequipement", icon = icon("weight")),
                                             menuItem("Usage des infrastructures", tabName = "infra", icon = icon("road")),
                                             menuItem("Conditions météorologiques", tabName = "meteo", icon = icon("sun")),
-                                            menuItem("Exporter ma configuration", tabName = "export", icon = icon("file-export")
-                                                     # ,
-                                                     # downloadButton("download_Config", "Télécharger ma configuration", class = "butt1")
-                                                     ),
+                                            menuItem("Exporter ma configuration", tabName = "export", icon = icon("file-export")),
                                             menuItem("Charger ma configuration", tabName = "import", icon = icon("file-upload"))
-                                                     # ,
-                                                     # downloadButton("upload_Configuration", "Importer mon propre parc", class = "butt1"))
                                           )),
                                         
                                         dashboardBody(
@@ -68,7 +57,7 @@ ui <-
                                                              h3("Composition du parc"),
                                                              
                                                              fluidRow(
-                                                               column(width = 3,
+                                                               column(width = 2,
                                                                       radioGroupButtons(
                                                                inputId =  "Input_Configurateur_defautimportperso",
                                                                label = "",
@@ -88,7 +77,7 @@ ui <-
                                                              conditionalPanel(
                                                                condition = "input.Input_Configurateur_defautimportperso == 'defaut'",
                                                                
-                                                               column(width = 4,
+                                                               column(width = 4,offset = 3,
                                                                       
                                                                selectInput(
                                                                  inputId =  "Input_Configurateur_defaut_choixParc",
@@ -106,7 +95,7 @@ ui <-
                                                              conditionalPanel(
                                                                condition = "input.Input_Configurateur_defautimportperso == 'perso'",
                                                                
-                                                               column(width = 4,
+                                                               column(width = 4,offset = 3,
                                                                       br(),br(),
                                                                       selectInput(
                                                                         inputId =  "Input_Configurateur_perso_choixParc",
@@ -134,7 +123,6 @@ ui <-
                                                                  column(width = 5,downloadButton("download_structure_parc", "Télécharger la structure excel", class = "butt2"))
                                                                )
                                                                
-                                                               # fileInput("fileParc", "Télécharger un parc en .csv")
                                                                ,
                                                                
                                                                fluidRow(
@@ -175,8 +163,7 @@ ui <-
                                                              
                                                             conditionalPanel( # ___Personnalisation du parc - ConditionalPanel perso ----
                                                                                condition = "input.Input_Configurateur_defautimportperso == 'perso'",
-                                                                               
-                                                                               # boxPlus( # début de la boxPlus Personnalisation du Parc
+                                                                              
                                                                               box( # début de la boxPlus Personnalisation du Parc
                                                                                  title = "Personnalisation du parc", 
                                                                                  width = NULL,
@@ -399,7 +386,6 @@ ui <-
                                                                input.Input_Configurateur_defautimportperso == 'perso' | 
                                                                input.Input_Configurateur_defautimportperso == 'import'",
                                                                
-                                                               # boxPlus( # début de la boxPlus Synthese Composition du Parc
                                                                box( # début de la boxPlus Synthese Composition du Parc
                                                                  title = "Synthèse", 
                                                                  width = NULL,
@@ -532,7 +518,6 @@ ui <-
                                                              
                                                              h3("Carburants"),
                                                              
-                                                             # boxPlus( # début de la boxPlus Synthese Carburants
                                                              box( # début de la boxPlus Synthese Carburants
                                                                title = "Synthèse", 
                                                                width = NULL,
@@ -564,7 +549,6 @@ ui <-
                                                              ), # fin boxPlus Synthese Carburants
                                                              
 
-                                                               # boxPlus( # début de la boxPlus BioFuel
                                                              box( # début de la boxPlus BioFuel
                                                                  title = "Incorporation d'agrocarburants", 
                                                                  width = NULL,
@@ -624,10 +608,9 @@ ui <-
 
                                                                ) # fin boxPlus BioFuel
                                                                  ,
-                                                                 
-                                                             # boxPlus( # début de la boxPlus MixElec et PerteEnergie
+                                                             
                                                              box( # début de la boxPlus MixElec et PerteEnergie
-                                                               title = "Productions électrique", 
+                                                               title = "Production électrique", 
                                                                width = NULL,
                                                                closable = FALSE,
                                                                collapsible = TRUE,
@@ -676,7 +659,6 @@ ui <-
 
                                                                  ,
                                                              
-                                                             # boxPlus( # début de la boxPlus ConsoHybride
                                                              box( # début de la boxPlus ConsoHybride
                                                                title = "Consommation des véhicules électriques", 
                                                                width = NULL,
@@ -736,7 +718,6 @@ ui <-
                                                              
                                                              h3("Poids et équipements des véhicules"),
 
-                                                             # boxPlus( # début de la boxPlus Masse
                                                              box( # début de la boxPlus Masse
                                                                title = "Masses des composants",
                                                                width = NULL,
@@ -830,7 +811,6 @@ ui <-
                                                              
                                                              ,
                                                              
-                                                             # boxPlus( # début de la boxPlus Durée de vie
                                                              box( # début de la boxPlus Durée de vie
                                                                title = "Durée de vie des véhicules",
                                                                width = NULL,
@@ -879,7 +859,6 @@ ui <-
                                                             
                                                              ,
                                                              
-                                                             # boxPlus( # début de la boxPlus Climatisation
                                                              box( # début de la boxPlus Climatisation
                                                                title = "Climatisation",
                                                                width = NULL,
@@ -955,7 +934,6 @@ ui <-
 
                                                              ,br(),
 
-                                                             # boxPlus( # début de la boxPlus
                                                              box( # début de la boxPlus
                                                                title = "Caractéristiques des types de route",
                                                                width = NULL,
@@ -1030,7 +1008,6 @@ ui <-
 
                                                              ,br(),
 
-                                                             # boxPlus( # début de la boxPlus
                                                              box( # début de la boxPlus
                                                                title = "Températures et humidités relatives",
                                                                width = NULL,
@@ -1099,10 +1076,8 @@ ui <-
                                                                collapsed = FALSE,
                                                                enable_label = TRUE,
                                                                solidHeader = FALSE,
-                                                             # span(h3("Exporter ma configuration"), style="color:green"),
                                                               downloadButton("download_Config", "Télécharger ma configuration", class = "butt1")),
                                                              br(),br(),
-                                                             # boxPlus( 
                                                              box(
                                                                title = "Visualisation de la configuration exportée", 
                                                                width = NULL,
@@ -1152,27 +1127,11 @@ ui <-
                                             fileInput('upload_Config', 'Choisir un fichier Excel',
                                                       accept = c(".xlsx",".xls"))
                                             ,
+                                            textInput("import_name", label = "Nom de la configuration", value = "Ma configuration"),
+                                            actionBttn("import_button",label = "Importer",size = "lg", color = "primary", style = "jelly"),
+                                            span(htmlOutput("message_import")),
                                             
-                                            fluidRow(
-                                              column(width = 4, offset = 0,
-                                                     
-                                                     radioGroupButtons(
-                                                       inputId =  "Input_Configurateur_UploadConfig",
-                                                       label = "Utilisation ou non de la configuration importée",
-                                                       choices = c("Ne pas utiliser la configuration importée" = "ConfigDefaut",
-                                                                   "Utiliser la configuration importée" = "ConfigUpload"),
-                                                       individual = TRUE,
-                                                       checkIcon = list(
-                                                         yes = tags$i(class = "fa fa-circle", 
-                                                                      style = "color: steelblue"),
-                                                         no = tags$i(class = "fa fa-circle-o", 
-                                                                     style = "color: steelblue"))
-                                                     )
-                                              )
-                                              
-                                            )
-                                            
-                                            ,br(),br(),
+                                            br(),br(),
                                             
                                             conditionalPanel( # conditionalPanel
                                               condition = "input.Input_Configurateur_UploadConfig == 'ConfigUpload'",
@@ -1214,9 +1173,8 @@ ui <-
              # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
              
              tabPanel("Lancer un calcul", # TabPanel "Calcul" ####
-                      style = "padding-top: 90px;",
+                      style = "padding-top: 120px;",
                       icon = icon("calculator"),
-                      
                       fluidRow(
                         column(width = 5, offset=1,
                                h3("Lancement du calcul"))),
@@ -1295,18 +1253,9 @@ ui <-
                                br(),
                                textInput("nom_calcul", label = h3("Nom du calcul"), value = "Entrer le nom..."),
                                
+                               span(textOutput("verif_length"),style="font-size:1.4em"),
+                               uiOutput("bouton_calcul"),
                                
-                               
-                               actionBttn(
-                                 "button_lancementCalcul",
-                                 "Calcul des impacts environnementaux",
-                                 icon = NULL,
-                                 style = "material-flat",
-                                 color = "success",
-                                 size = "lg",
-                                 block = FALSE,
-                                 no_outline = TRUE
-                               ),
                                br(),
                                
                                DTOutput("DT_liste_calculs"),
@@ -1338,18 +1287,13 @@ ui <-
              # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
              
              tabPanel("Analyses", # TabPanel "Analyses" ####
-                      style = "padding-top: 75px;",
+                      style = "padding-top: 120px;",
                       icon = icon("chart-bar"),
-                      # dashboardPagePlus(sidebar_fullCollapse = T,
                       dashboardPage(
-                                        # sidebar_fullCollapse = T,
                                         skin = "red",
-                                        # dashboardHeaderPlus(title = "ModEM-ACV", 
                                         dashboardHeader(title = "ModEM-ACV", 
                                                         disable = T,
-                                                            # enable_rightsidebar = TRUE,
                                                         controlbarIcon = shiny::icon("gears")
-                                                            # rightSidebarIcon = "gears"
                                                         ),
                                         
                                         dashboardSidebar(                      
@@ -1507,7 +1451,6 @@ ui <-
                                                     
                                                     uiOutput("MonoCompaVehicules_choix_calcul"),
                                                     
-                                                    # boxPlus( # début boxPlus MonoCompaVehicules / Vitesse 
                                                     box( # début boxPlus MonoCompaVehicules / Vitesse 
                                                       title = "Evolution avec la vitesse de circulation", 
                                                       width = NULL,
@@ -1540,7 +1483,6 @@ ui <-
                                                     ) # fin boxPlus MonoCompaVehicules / Vitesse 
                                                     ,
                                                     
-                                                    # boxPlus( # début boxPlus MonoCompaVehicules / phases ACV 
                                                     box( # début boxPlus MonoCompaVehicules / phases ACV 
                                                       title = "Contribution des phases ACV", 
                                                       width = NULL,
@@ -1616,7 +1558,6 @@ ui <-
                                                     ) # fin boxPlus MonoCompaVehicules / phases ACV
                                                     ,
                                                     
-                                                    # boxPlus( # début boxPlus MonoCompaVehicules / véhicules 
                                                     box( # début boxPlus MonoCompaVehicules / véhicules 
                                                       title = "Contribution des différents véhicules", 
                                                       width = NULL,
@@ -1700,7 +1641,6 @@ ui <-
                                                     
                                                     uiOutput("MonoCompaParcs_choix_calcul"),
                                                     
-                                                    # boxPlus( # début boxPlus MonoCompaParcs / Vitesse 
                                                     box( # début boxPlus MonoCompaParcs / Vitesse 
                                                       title = "Evolution avec la vitesse de circulation", 
                                                       width = NULL,
@@ -1719,7 +1659,6 @@ ui <-
                                                     ) # fin boxPlus MonoCompaParcs / Vitesse 
                                                     ,
                                                     
-                                                    # boxPlus( # début boxPlus MonoCompaParcs / contributions 
                                                     box( # début boxPlus MonoCompaParcs / contributions 
                                                       title = "Comparer les contributions ACV", 
                                                       width = NULL,
@@ -1881,7 +1820,7 @@ ui <-
                                                     )
                                                     ,
                                                     br(),
-                                                    # boxPlus( # début boxPlus MonoACVdetail / Vitesse 
+                                                    
                                                     box( # début boxPlus MonoACVdetail / Vitesse 
                                                       title = "Evolution avec la vitesse de circulation", 
                                                       width = NULL,
@@ -1919,7 +1858,7 @@ ui <-
                                                       withSpinner(plotlyOutput("GRAPH_MonoACVdetail_vitesse",height = "600px")),
                                                       downloadButton("download_MonoACVdetail2", "Télécharger les données", class = "butt1")
                                                     ),
-                                                    # boxPlus( # début boxPlus MonoACVdetail / type veh 
+                                                     
                                                     box( # début boxPlus MonoACVdetail / type veh 
                                                       title = "Analyse par type de véhicule", 
                                                       width = NULL,
@@ -2085,7 +2024,6 @@ ui <-
                                                     ,
                                                     br(),br(),
 
-                                                    # boxPlus(title = "Evolution avec la vitesse de circulation", 
                                                    box(title = "Evolution avec la vitesse de circulation", 
                                                             width = NULL,
                                                             closable = FALSE,
@@ -2431,7 +2369,6 @@ ui <-
                                                     
                                                     uiOutput("EmissionsDirectes_choix_calcul"),
                                                     
-                                                    # boxPlus(title = "Evolution avec la vitesse de circulation", 
                                                     box(title = "Evolution avec la vitesse de circulation", 
                                                             width = NULL,
                                                             closable = FALSE,
@@ -2459,7 +2396,6 @@ ui <-
                                                     )
                                                     ,
 
-                                                    # boxPlus(title = "Tableau d'émissions et de consommations",
                                                     box(title = "Tableau d'émissions et de consommations",
                                                             width = NULL,
                                                             closable = FALSE,
@@ -2511,7 +2447,6 @@ ui <-
 
                                                     ,
 
-                                                    # boxPlus(title = "Comparaison de véhicules",
                                                     box(title = "Comparaison de véhicules",
                                                             width = NULL,
                                                             closable = FALSE,
@@ -2604,24 +2539,30 @@ ui <-
              # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
              # --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
              
-             tabPanel("A propos (en construction)", # TabPanel "A propos" ####
-                      style = "padding-top: 100px;",
+             tabPanel("A propos", # TabPanel "A propos" ####
+                      style = "padding-top: 175px;",
                       icon = icon("envelope"),
                       
                       fluidRow(
                         column(width = 10, offset=1,
                                
-                               # boxPlus(
-                               box(
-                                 title = div(icon("question-circle"),"Manuel"), 
+                               box(tags$style(HTML("
+                                        .box.box-primary {
+                                          color:#000000;
+                                          background:#9fb7e1;
+                                          border:#9fb7e1
+                                                            }")),
+                                 title = div(icon("question-circle"),"Manuel",style = "color:black;font-size: 150%"), 
                                  sidebar_icon = icon("envelope"),
+                                 status = "primary",
                                  closable = FALSE, 
                                  width = NULL,
                                  enable_label = TRUE,
                                  solidHeader = FALSE, 
                                  collapsible = TRUE,
                                  collapsed = TRUE,
-                                 background = "blue",
+                                 # background = "blue",
+                                 # background = "#9fb7e1",
                                  includeMarkdown("www/Manuel.md")
                                )
                         ))
@@ -2630,17 +2571,23 @@ ui <-
                       
                       fluidRow(
                         column(width = 10, offset=1,
-                               # boxPlus(
                                box(
-                                 title = div(icon("book"),"Méthodologie"), 
+                                 tags$style(HTML("
+                                        .box.box-success {
+                                          color:#000000;
+                                          background:#ffa0a0;
+                                          border:#ffa0a0
+                                                            }")),
+                                 title = div(icon("book"),"Méthodologie (en construction)",style = "color:black;font-size: 150%"), 
                                  sidebar_icon = icon("envelope"),
+                                 status = "success",
                                  closable = FALSE, 
                                  width = NULL,
                                  enable_label = TRUE,
                                  solidHeader = FALSE, 
                                  collapsible = TRUE,
                                  collapsed = TRUE,
-                                 background = "blue",
+                                 # background = "blue",
                                  includeMarkdown("www/Method.md")
                                )
                         ))
@@ -2649,17 +2596,23 @@ ui <-
                       
                       fluidRow(
                         column(width = 10, offset=1,
-                               # boxPlus(
                                box(
-                                 title = div(icon("envelope"),"Mentions légales"), 
+                                 tags$style(HTML("
+                                        .box.box-info {
+                                          color:#000000;
+                                          background:#acd292;
+                                          border:#acd292
+                                                            }")),
+                                 title = div(icon("envelope"),"Mentions légales",style = "color:black;font-size: 150%"), 
                                  sidebar_icon = icon("envelope"),
+                                 status = "info",
                                  closable = FALSE, 
                                  width = NULL,
                                  enable_label = TRUE,
                                  solidHeader = FALSE, 
                                  collapsible = TRUE,
                                  collapsed = TRUE,
-                                 background = "blue",
+                                 # background = "blue",
                                  includeMarkdown("www/mentions_legales.md")
                                )
                         ))
@@ -2669,7 +2622,6 @@ ui <-
                       fluidRow(
                         column(width = 10, offset=1,
                                
-                               # widgetUserBox(
                                userBox(
                                  title = userDescription(
                                                           title = "Contact",
@@ -2678,12 +2630,7 @@ ui <-
                                  )
                                  ,
                                  width = 12,
-                                 # type = 2,
-                                 boxToolSize = "sm"
-                                 ,
-                                 # src = "Cyrille Francois-portrait.png",
-                                 # image = "Cyrille Francois-portrait.png",
-                                 # color = "yellow",
+                                 boxToolSize = "sm",
                                  status = "orange",
                                  includeMarkdown("www/Cyrille.md")
                                )
@@ -2704,4 +2651,4 @@ ui <-
                          ")
 
             
-  )
+  ))

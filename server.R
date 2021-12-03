@@ -6,15 +6,15 @@ shinyServer(function(input, output, session) {
 
  Masse_DV <- Parc_utilisateur[[1]] %>%
     select(RedNOxEuro6,M_carros,M_moteur_ICE,M_moteur_Elec,M_batterie,DV_veh,DV_batterie)
-  
- Parc_utilisateur <- Parc_utilisateur %>%
-  lapply(function(i) select(i,-RedNOxEuro6,-M_carros,-M_moteur_ICE,-M_moteur_Elec,-M_batterie,-DV_veh,-DV_batterie))
  
- Nom_parc <- data.frame(Abrev = names(Parc_utilisateur), Noms = c("Ile de France 2010","Aire urbaine de Lyon 2015","France 2020"), row.names = names(Parc_utilisateur))
+ 
+ Parc_utilisateur <- do.call("reactiveValues",(Parc_utilisateur  %>% lapply(function(i) select(i,-RedNOxEuro6,-M_carros,-M_moteur_ICE,-M_moteur_Elec,-M_batterie,-DV_veh,-DV_batterie))))
+ 
+ 
+ list_choix_parcs <- reactiveValues(choix = c("France 2020" = "FR2020","Ile de France 2010" = "EGT2010","Aire urbaine de Lyon 2015" = "Lyon2015"))
 
- REACT_Parc_utilisateur <- reactiveVal({
-   Parc_utilisateur[[1]]
-})
+ REACT_Parc_utilisateur <- reactiveVal()
+ REACT_Parc_utilisateur(isolate(Parc_utilisateur[["FR2020"]]))
  
 observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configurateur_defaut_choixParc,input$Input_Configurateur_perso_choixParc),{
   if(input$Input_Configurateur_defautimportperso == "defaut") {
@@ -24,7 +24,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
     new_parc <- Parc_utilisateur[[input$Input_Configurateur_perso_choixParc]]
     REACT_Parc_utilisateur(new_parc)
   } else {
-    new_parc <- Parc_utilisateur[[1]]
+    new_parc <- Parc_utilisateur[["FR2020"]]
     REACT_Parc_utilisateur(new_parc)
   }
   
@@ -58,7 +58,8 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   REACT_TitreSynthese <- eventReactive(c(input$Input_Configurateur_defautimportperso,input$Input_Configurateur_defaut_choixParc),{
     temp <- "Parc utilisé : "
     if( input$Input_Configurateur_defautimportperso == "defaut"){
-      temp <- paste("Parc utilisé : ", as.character(Nom_parc[input$Input_Configurateur_defaut_choixParc,"Noms"]),sep ="")
+      
+      temp <- paste("Parc utilisé : ", names(which(isolate(list_choix_parcs$choix) == input$Input_Configurateur_defaut_choixParc)),sep ="")
     }
     if(input$Input_Configurateur_defautimportperso == "import"){
       temp <- "Parc utilisé : importé"
@@ -77,9 +78,9 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   # -- Motorisation globale --
 
   REACT_Motorisation_globale <- reactiveValues(ini = data.frame(
-    Parc_utilisateur[[1]] %>% group_by(Fuel) %>% summarise(Part = sum(Part)*100)
+    isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Fuel) %>% summarise(Part = sum(Part)*100)
   ), config = data.frame(
-    Parc_utilisateur[[1]] %>% group_by(Fuel) %>% summarise(Part = sum(Part)*100)
+    isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Fuel) %>% summarise(Part = sum(Part)*100)
   ))
   
   observeEvent(input$Input_Configurateur_perso_choixParc,{
@@ -93,7 +94,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   output$download_structure_parc <- downloadHandler(
     
     filename = function() { "structure_parc.xlsx"},
-    content = function(file) {write_xlsx(x = parc_vide, 
+    content = function(file) {write.xlsx(x = parc_vide, 
                                          path = file)} 
   )
   
@@ -140,7 +141,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   # -- Motorisation par norme Euro --
   REACT_Motorisation_parnorme <- reactiveValues(
     ini = data.frame(
-      Parc_utilisateur[[1]] %>% group_by(Euro.Standard,Fuel) %>% summarise(Part = sum(Part)) %>% 
+      isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Euro.Standard,Fuel) %>% summarise(Part = sum(Part)) %>% 
         pivot_wider(names_from = Euro.Standard, values_from = Part, values_fill = list(value = 0)) %>%
         mutate(`Euro 1` = `Euro 1` / sum(`Euro 1`)*100,
                `Euro 2` = `Euro 2` / sum(`Euro 2`)*100,
@@ -152,7 +153,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
                `Euro 6d` = `Euro 6d` / sum(`Euro 6d`)*100)
     ),
     config = data.frame(
-      Parc_utilisateur[[1]] %>% group_by(Euro.Standard,Fuel) %>% summarise(Part = sum(Part)) %>% 
+      isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Euro.Standard,Fuel) %>% summarise(Part = sum(Part)) %>% 
         pivot_wider(names_from = Euro.Standard, values_from = Part, values_fill = list(value = 0)) %>%
         mutate(`Euro 1` = `Euro 1` / sum(`Euro 1`)*100,
                `Euro 2` = `Euro 2` / sum(`Euro 2`)*100,
@@ -225,7 +226,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   # -- Motorisation par segment de puissance --
   REACT_Motorisation_parsegment <- reactiveValues(
     ini = data.frame(
-      Parc_utilisateur[[1]] %>% group_by(Segment,Fuel) %>% summarise(Part = sum(Part)) %>% 
+      isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Segment,Fuel) %>% summarise(Part = sum(Part)) %>% 
         pivot_wider(names_from = Segment, values_from = Part, values_fill = list(value = 0)) %>%
         mutate(Large = Large / sum(Large)*100,
                Medium = Medium / sum(Medium)*100,
@@ -234,7 +235,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
         select(Fuel,Mini,Small,Medium,Large)	 
     ),
     config = data.frame(
-      Parc_utilisateur[[1]] %>% group_by(Segment,Fuel) %>% summarise(Part = sum(Part)) %>% 
+      isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Segment,Fuel) %>% summarise(Part = sum(Part)) %>% 
         pivot_wider(names_from = Segment, values_from = Part, values_fill = list(value = 0)) %>%
         mutate(Large = Large / sum(Large)*100,
                Medium = Medium / sum(Medium)*100,
@@ -369,9 +370,9 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
 
   # ---- _Configurateur Euro ----
   REACT_Euro_globale <- reactiveValues(
-    ini = data.frame(Parc_utilisateur[[1]] %>% 
+    ini = data.frame(isolate(Parc_utilisateur[["FR2020"]]) %>% 
                        group_by(Euro.Standard) %>% summarise(Part = sum(Part)*100)),
-    config = data.frame(Parc_utilisateur[[1]] %>% 
+    config = data.frame(isolate(Parc_utilisateur[["FR2020"]]) %>% 
                           group_by(Euro.Standard) %>% summarise(Part = sum(Part)*100))
   )
   
@@ -422,7 +423,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   
   # -- Norme Euro par motorisation --
   REACT_Euro_parmotorisation <- reactiveValues(
-    ini = data.frame(    Parc_utilisateur[[1]] %>%
+    ini = data.frame(    isolate(Parc_utilisateur[["FR2020"]]) %>%
                            group_by(Fuel,Euro.Standard) %>% summarise(Part = sum(Part)) %>% 
                            pivot_wider(names_from = Fuel, values_from = Part, values_fill = list(value = 0)) %>%
                            mutate(CNG = CNG / sum(CNG)*100,
@@ -432,7 +433,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
                                   Petrol = Petrol / sum(Petrol)*100,
                                   `Petrol Hybrid` = `Petrol Hybrid` / sum(`Petrol Hybrid`)*100)
     ),
-    config = data.frame(    Parc_utilisateur[[1]] %>%
+    config = data.frame(    isolate(Parc_utilisateur[["FR2020"]]) %>%
                               group_by(Fuel,Euro.Standard) %>% summarise(Part = sum(Part)) %>% 
                               pivot_wider(names_from = Fuel, values_from = Part, values_fill = list(value = 0)) %>%
                               mutate(CNG = CNG / sum(CNG)*100,
@@ -509,7 +510,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   
   # -- Norme Euro par segment de puissance --
   REACT_Euro_parsegment <- reactiveValues(
-    ini = data.frame(Parc_utilisateur[[1]] %>%
+    ini = data.frame(isolate(Parc_utilisateur[["FR2020"]]) %>%
                        group_by(Segment,Euro.Standard) %>% summarise(Part = sum(Part)) %>% 
                        pivot_wider(names_from = Segment, values_from = Part, values_fill = list(value = 0)) %>%
                        mutate(Large = Large / sum(Large)*100,
@@ -518,7 +519,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
                               Small = Small / sum(Small)*100) %>%
                        select(Euro.Standard,Mini,Small,Medium,Large)
     ),
-    config = data.frame(Parc_utilisateur[[1]] %>%
+    config = data.frame(isolate(Parc_utilisateur[["FR2020"]]) %>%
                           group_by(Segment,Euro.Standard) %>% summarise(Part = sum(Part)) %>% 
                           pivot_wider(names_from = Segment, values_from = Part, values_fill = list(value = 0)) %>%
                           mutate(Large = Large / sum(Large)*100,
@@ -645,10 +646,10 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   # ---- _Configurateur Segment de puissance ----
   REACT_Segment_globale <- reactiveValues(
     ini = data.frame(
-      Parc_utilisateur[[1]] %>% group_by(Segment) %>% summarise(Part = sum(Part)*100)
+      isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Segment) %>% summarise(Part = sum(Part)*100)
     ),
     config = data.frame(
-      Parc_utilisateur[[1]] %>% group_by(Segment) %>% summarise(Part = sum(Part)*100)
+      isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Segment) %>% summarise(Part = sum(Part)*100)
     ))
   
   observeEvent(input$Input_Configurateur_perso_choixParc,{
@@ -699,7 +700,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   # -- Segment de puissance par motorisation --
   REACT_Segment_parmotorisation <- reactiveValues(
     ini = data.frame(
-      Parc_utilisateur[[1]] %>% group_by(Fuel,Segment) %>% summarise(Part = sum(Part)) %>% 
+      isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Fuel,Segment) %>% summarise(Part = sum(Part)) %>% 
         pivot_wider(names_from = Fuel, values_from = Part, values_fill = list(value = 0)) %>%
         mutate(CNG = CNG / sum(CNG)*100,
                Diesel = Diesel / sum(Diesel)*100,
@@ -710,7 +711,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
         mutate(OrdreSegment = c("d","c","a","b")) %>% arrange(OrdreSegment) %>% select(-OrdreSegment)
     ),
     config = data.frame(
-      Parc_utilisateur[[1]] %>% group_by(Fuel,Segment) %>% summarise(Part = sum(Part)) %>% 
+      isolate(Parc_utilisateur[["FR2020"]]) %>% group_by(Fuel,Segment) %>% summarise(Part = sum(Part)) %>% 
         pivot_wider(names_from = Fuel, values_from = Part, values_fill = list(value = 0)) %>%
         mutate(CNG = CNG / sum(CNG)*100,
                Diesel = Diesel / sum(Diesel)*100,
@@ -788,7 +789,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
   
   # -- Segment de puissance par norme Euro --
   REACT_Segment_parnorme <- reactiveValues(
-    ini = data.frame(Parc_utilisateur[[1]] %>% 
+    ini = data.frame(isolate(Parc_utilisateur[["FR2020"]]) %>% 
                        group_by(Euro.Standard,Segment) %>% summarise(Part = sum(Part)) %>% 
                        pivot_wider(names_from = Euro.Standard, values_from = Part, values_fill = list(value = 0)) %>%
                        mutate(`Euro 1` = `Euro 1` / sum(`Euro 1`)*100,
@@ -801,7 +802,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
                               `Euro 6d` = `Euro 6d` / sum(`Euro 6d`)*100) %>%
                        mutate(OrdreSegment = c("d","c","a","b")) %>% arrange(OrdreSegment) %>% select(-OrdreSegment)
     ),
-    config = data.frame(Parc_utilisateur[[1]] %>% 
+    config = data.frame(isolate(Parc_utilisateur[["FR2020"]]) %>% 
                           group_by(Euro.Standard,Segment) %>% summarise(Part = sum(Part)) %>% 
                           pivot_wider(names_from = Euro.Standard, values_from = Part, values_fill = list(value = 0)) %>%
                           mutate(`Euro 1` = `Euro 1` / sum(`Euro 1`)*100,
@@ -1043,12 +1044,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
       REACT_Modifications_Config_Euro_parmotorisation() == 1 &
       (REACT_Modifications_Config_Segment_parmotorisation() + REACT_Modifications_Config_Segment_parnorme()) == 0
     ) {
-      print(REACT_Motorisation_globale[["config"]])
-      print(REACT_Euro_parmotorisation[["config"]])
-      print(REACT_Segment_globale[["config"]])
       REACT_Euro_parmotorisation[["config"]][is.na(REACT_Euro_parmotorisation[["config"]])] <- 0
-      print(REACT_Euro_parmotorisation[["config"]])
-      print(head(REACT_Parc_utilisateur()))
       newdf_Parc <- REACT_Parc_utilisateur() %>% select(-Part) %>%
         left_join(REACT_Motorisation_globale[["config"]], by = "Fuel") %>% rename(PartMotorisation = Part) %>%
         left_join(REACT_Euro_parmotorisation[["config"]] %>%
@@ -1344,7 +1340,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
         "Parc.xlsx" },
       content = function(file) {
         
-        write_xlsx(
+        write.xlsx(
           
           if("Div" %in% names(REACT_Parc_utilisateur())) {
             REACT_Parc_utilisateur() %>% select(-Div)
@@ -1734,7 +1730,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
 
     # ---- _Poids et équipements ----
     
-    Masse_vehicule <- aggregate(Masse_DV[,c(-1,-6,-7)],list(Parc_utilisateur[[1]]$Fuel,Parc_utilisateur[[1]]$Segment),mean)
+    Masse_vehicule <- aggregate(Masse_DV[,c(-1,-6,-7)],list(isolate(Parc_utilisateur[["FR2020"]])$Fuel,isolate(Parc_utilisateur[["FR2020"]])$Segment),mean)
     Masse_vehicule <- Masse_vehicule %>% rename(Segment = Group.2, Fuel = Group.1)
     Masse_vehicule$Segment <- fct_relevel(Masse_vehicule$Segment,c("Mini","Small","Medium","Large"))
     Masse_vehicule <- arrange(Masse_vehicule,Segment)
@@ -2576,7 +2572,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
           select(Category,Fuel,Segment,Annee,Euro.Standard,Technology,Part,RedNOxEuro6,M_carros,M_moteur_ICE,M_moteur_Elec,M_batterie,DV_veh,DV_batterie)
       }
       
-      levels(SuperParcUtilisateur$Technology) <- c(levels(SuperParcUtilisateur$Technology),"")
+      if(!("" %in% levels(SuperParcUtilisateur$Technology))){levels(SuperParcUtilisateur$Technology) <- c(levels(SuperParcUtilisateur$Technology),"")}
       SuperParcUtilisateur$Technology[is.na(SuperParcUtilisateur$Technology)] <- ""
       
       SuperParcUtilisateur
@@ -2712,104 +2708,136 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
     output$download_Config <- downloadHandler(
 
       filename = function() { "ModEm_MaConfiguration.xlsx"},
-      content = function(file) {write_xlsx(list("Parc" = REACT_SuperParcUtilisateur(), 
+      content = function(file) {write.xlsx(list("Parc" = REACT_SuperParcUtilisateur(), 
                                                 "Infra" = REACT_SuperInfra_usage(),
                                                 "Elec" = REACT_SuperMix_elec() %>% mutate(Part = rownames(REACT_SuperMix_elec())) %>% select(Part,ratio),
                                                 "BioFuel" = REACT_SuperBioFuel() %>% mutate(Fuel = rownames(REACT_SuperBioFuel())) %>% select(Fuel,ratio),
                                                 "Clim" = REACT_SuperACUsage(),
-                                                "Temp" = REACT_SuperTemp()), 
-                                           path = file)} 
+                                                "Temp" = REACT_SuperTemp(),
+                                                "Autres" = data.frame(ltrip=REACT_Super_ltrip(),conso_elec=REACT_Super_conso_elec(),hybrid_elec=REACT_Super_hybrid_elec())), 
+                                           file = file)} 
     )
     
     # Upload Config complète ----
-    REACT_Upload_Config_Parc <- reactive({
+    observeEvent(input$import_button,{
       req(input$upload_Config)
-      inFile <- input$upload_Config
-      Parc_utilisateur <- as.data.frame(read_excel(inFile$datapath, 1))
-      levels(Parc_utilisateur$Technology) <- c(levels(Parc_utilisateur$Technology),"")
-      Parc_utilisateur$Technology[is.na(Parc_utilisateur$Technology)] <- ""
-      Parc_utilisateur
-    })
-    
-    REACT_Upload_Config_Infra <- reactive({
-      req(input$upload_Config)
-      inFile <- input$upload_Config
-      Infra_usage <- as.data.frame(read_excel(inFile$datapath, 2))
-      rownames(Infra_usage) <- Infra_usage$Type_infra
-      Infra_usage
-    })
-    
-    REACT_Upload_Config_Elec <- reactive({
-      req(input$upload_Config)
-      inFile <- input$upload_Config
-      Mix_elec <- as.data.frame(read_excel(inFile$datapath, 3))
-      Mix_elec <- data.frame(ratio = Mix_elec[,2], row.names = Mix_elec[,1])
-      Mix_elec
-    })
-    
-    REACT_Upload_Config_BioFuel <- reactive({
-      req(input$upload_Config)
-      inFile <- input$upload_Config
-      BioFuel <- as.data.frame(read_excel(inFile$datapath, 4))
-      BioFuel <- data.frame(ratio = BioFuel[,2], row.names = BioFuel[,1])
-      BioFuel
-    })
-    
-    REACT_Upload_Config_Clim <- reactive({
-      req(input$upload_Config)
-      inFile <- as.data.frame(input$upload_Config)
-      ACUsage <- read_excel(inFile$datapath, 5)
-      names(ACUsage) <- c("Category","Fuel","Segment","Euro.Standard","InstalledAC","ACUsage")
-      ACUsage
-    })
-    
-    REACT_Upload_Config_Temp <- reactive({
-      req(input$upload_Config)
-      inFile <- as.data.frame(input$upload_Config)
-      Temp <- read_excel(inFile$datapath, 6)
-      rownames(Temp) <- Temp$Month
-      Temp
-    })
-    
-    output$VISU_ParcUtilisateur_upload <- renderDT({
-      datatable(REACT_Upload_Config_Parc(),
-                class = "hover cell-border compact",
-                options = list(pageLength = 10)
-      )
-    })
-    output$VISU_ACUsage_upload <- renderDT({
-      datatable(REACT_Upload_Config_Clim(),
-                class = "hover cell-border compact",
-                options = list(pageLength = 10)
-      )
-    })
-    output$VISU_BioFuel_upload <- renderDT({
-      datatable(REACT_Upload_Config_BioFuel(),
-                class = "hover cell-border compact",
-                options = list(dom = 't',
-                               pageLength = 10)
-      )
-    })
-    output$VISU_Mix_elec_upload <- renderDT({
-      datatable(REACT_Upload_Config_Elec(),
-                class = "hover cell-border compact",
-                options = list(dom = 't',
-                               pageLength = 30)
-      )
-    })
-    output$VISU_Infra_usage_upload <- renderDT({
-      datatable(REACT_Upload_Config_Infra(),
-                class = "hover cell-border compact",
-                options = list(dom = 't',
-                               pageLength = 10)
-      )
-    })
-    output$VISU_Temp_upload <- renderDT({
-      datatable(REACT_Upload_Config_Temp(),
-                class = "hover cell-border compact",
-                options = list(dom = 't',
-                               pageLength = 30)
-      )
+      if(!(tools::file_ext(input$upload_Config[1]) %in% c("xls", "xlsx"))) {
+        output$message_import <- renderText({"<font color='red'><b>Selectionnez un fichier Excel !!</b></font>"})
+      }
+      else {
+        showModal(modalDialog(HTML('<h2> Importation ...</h2>'), footer = NULL, size = "l"))
+        
+        try_mess <- try({
+            inFile <- input$upload_Config
+            wb <- loadWorkbook(file = inFile$datapath)
+            Parc_utilisateur_temp <- as.data.frame(read.xlsx(wb,sheet = "Parc"))
+            Infra_usage_temp <- as.data.frame(read.xlsx(wb,sheet = "Infra"))
+            Mix_elec_temp <- as.data.frame(read.xlsx(wb,sheet = "Elec"))
+            BioFuel_temp <- as.data.frame(read.xlsx(wb,sheet = "BioFuel"))
+            ACUsage_temp <- as.data.frame(read.xlsx(wb,sheet = "Clim"))
+            Temp_temp <- as.data.frame(read.xlsx(wb,sheet = "Temp"))
+            Autres_temp <- as.data.frame(read.xlsx(wb,sheet = "Autres"))
+            rm(wb)
+          },silent = T)
+        if(class(try_mess)[1] == 'try-error'){
+          removeModal()
+          output$message_import <- renderText({"<font color='red'><b>Erreur de chargement du fichier Excel</b></font>"})
+        }
+        else {try_mess <- try({
+            levels(Parc_utilisateur_temp$Technology) <- c(levels(Parc_utilisateur_temp$Technology),"")
+            Parc_utilisateur_temp$Technology[is.na(Parc_utilisateur_temp$Technology)] <- ""
+            rownames(Infra_usage_temp) <- Infra_usage_temp$Type_infra
+            Mix_elec_temp <- data.frame(ratio = Mix_elec_temp[,2], row.names = Mix_elec_temp[,1])
+            BioFuel_temp <- data.frame(ratio = BioFuel_temp[,2], row.names = BioFuel_temp[,1])
+            names(ACUsage_temp) <- c("Category","Fuel","Segment","Euro.Standard","InstalledAC","ACUsage")
+            rownames(Temp_temp) <- Temp_temp$Month
+            #importation Parc
+            Parc_utilisateur[[input$import_name]] <- Parc_utilisateur_temp %>% select(-RedNOxEuro6,-M_carros,-M_moteur_ICE,-M_moteur_Elec,-M_batterie,-DV_veh,-DV_batterie)
+            new_choice <- input$import_name
+            names(new_choice) <- paste(input$import_name,"(importé)",sep = " ")
+            list_choix_parcs$choix <- c(list_choix_parcs$choix,new_choice)
+            updateSelectInput(inputId =  "Input_Configurateur_defaut_choixParc",
+                              label = "",
+                              choices = list_choix_parcs$choix, selected = new_choice)
+            updateSelectInput(inputId =  "Input_Configurateur_perso_choixParc",
+                              label = "",
+                              choices = list_choix_parcs$choix, selected = new_choice)
+            #importation duree de vie et masses
+            Masse_DV_temp <- Parc_utilisateur_temp %>% select(RedNOxEuro6,M_carros,M_moteur_ICE,M_moteur_Elec,M_batterie,DV_veh,DV_batterie)
+            Masse_vehicule <- aggregate(Masse_DV_temp[,c(-1,-6,-7)],list(Parc_utilisateur_temp$Fuel,Parc_utilisateur_temp$Segment),mean)
+            Masse_vehicule2 <- aggregate(Masse_DV_temp[,c(-1,-6,-7)]*Parc_utilisateur_temp$Part,list(Parc_utilisateur_temp$Fuel,Parc_utilisateur_temp$Segment),sum)[,c(-1,-2)]/aggregate(Parc_utilisateur_temp$Part,list(Parc_utilisateur_temp$Fuel,Parc_utilisateur_temp$Segment),sum)[,c(-1,-2)]
+            Masse_vehicule[,c(-1,-2)][!is.na(Masse_vehicule2)] <- Masse_vehicule2[!is.na(Masse_vehicule2)]
+            Masse_vehicule <- Masse_vehicule %>% rename(Segment = Group.2, Fuel = Group.1)
+            Masse_vehicule$Segment <- fct_relevel(Masse_vehicule$Segment,c("Mini","Small","Medium","Large"))
+            Masse_vehicule <- arrange(Masse_vehicule,Segment)
+            REACT_Config_MasseEssence((Masse_vehicule %>% filter(Fuel == "Petrol"))[,-1])
+            REACT_Config_MasseDiesel((Masse_vehicule %>% filter(Fuel == "Diesel"))[,-1])
+            REACT_Config_MasseElectrique((Masse_vehicule %>% filter(Fuel == "Electric"))[,-1])
+            REACT_Config_MasseHybride((Masse_vehicule %>% filter(Fuel == "Petrol Hybrid"))[,-1])
+            REACT_Config_MasseGazNaturel((Masse_vehicule %>% filter(Fuel == "CNG"))[,-1])
+            REACT_Config_MasseGPL((Masse_vehicule %>% filter(Fuel == "LPG"))[,-1])
+            REACT_Config_MasseEssence_2((Masse_vehicule %>% filter(Fuel == "Petrol"))[,-1])
+            REACT_Config_MasseDiesel_2((Masse_vehicule %>% filter(Fuel == "Diesel"))[,-1])
+            REACT_Config_MasseElectrique_2((Masse_vehicule %>% filter(Fuel == "Electric"))[,-1])
+            REACT_Config_MasseHybride_2((Masse_vehicule %>% filter(Fuel == "Petrol Hybrid"))[,-1])
+            REACT_Config_MasseGazNaturel_2((Masse_vehicule %>% filter(Fuel == "CNG"))[,-1])
+            REACT_Config_MasseGPL_2((Masse_vehicule %>% filter(Fuel == "LPG"))[,-1])
+            DV_vehicule <- aggregate(Masse_DV_temp$DV_veh,list(Parc_utilisateur_temp$Fuel),mean)
+            DV_vehicule2 <- aggregate(Masse_DV_temp$DV_veh*Parc_utilisateur_temp$Part,list(Parc_utilisateur_temp$Fuel),sum)$x/aggregate(Parc_utilisateur_temp$Part,list(Parc_utilisateur_temp$Fuel),sum)$x
+            DV_vehicule$x[!is.na(DV_vehicule2)] <- DV_vehicule2[!is.na(DV_vehicule2)]
+            REACT_Config_DureeVieVehicule((DV_vehicule %>% rename(DV_veh = x, Fuel = Group.1)))
+            REACT_Config_DureeVieVehicule_2((DV_vehicule %>% rename(DV_veh = x, Fuel = Group.1)))
+            DV_batterie <- sum(Masse_DV_temp$DV_batterie*Masse_DV_temp$M_batterie*Parc_utilisateur_temp$Part)/sum(Masse_DV_temp$M_batterie*Parc_utilisateur_temp$Part)
+            if(is.na(DV_batterie)){ DV_batterie <- mean(Masse_DV_temp$DV_batterie) }
+            REACT_Config_DureeVieBatterie(data.frame("DV_batterie" = DV_batterie))
+            REACT_Config_DureeVieBatterie_2(data.frame("DV_batterie" = DV_batterie))
+            
+            rm(Masse_DV_temp,Masse_vehicule,Masse_vehicule2,DV_vehicule,DV_vehicule2,DV_batterie)
+            #importation Infrastructure
+            REACT_Config_InfraUtilisation((Infra_usage_temp %>% select(Type_infra,Utilisation) %>% mutate(Utilisation = Utilisation * 100)))
+            REACT_Config_InfraCaract((Infra_usage_temp %>% select(-Utilisation) %>% mutate(dont.tunnel = dont.tunnel * 100, dont.pont = dont.pont * 100)))
+            REACT_Config_InfraCaract_2((Infra_usage_temp %>% select(-Utilisation) %>% mutate(dont.tunnel = dont.tunnel * 100, dont.pont = dont.pont * 100)))
+            
+            #importation MixElec
+            REACT_Config_MixElect(data.frame(Mix_elec_temp %>% mutate(Energie = rownames(Mix_elec_temp),Part = ratio*100) %>% select(-ratio))[0:9,])
+            REACT_Config_MixElect_2(data.frame(Mix_elec_temp %>% mutate(Energie = rownames(Mix_elec_temp),Part = ratio*100) %>% select(-ratio))[0:9,])
+            REACT_Config_PerteEnergie(data.frame(Mix_elec_temp %>% mutate(Tension = rownames(Mix_elec_temp),Perte = ratio*100) %>% select(-ratio))[10:12,])
+            REACT_Config_PerteEnergie_2(data.frame(Mix_elec_temp %>% mutate(Tension = rownames(Mix_elec_temp),Perte = ratio*100) %>% select(-ratio))[10:12,])
+            
+            #importation Biofuel
+            REACT_Config_Carburants(data.frame(BioFuel_temp %>% mutate(BioFuel = rownames(BioFuel_temp)) %>% select(BioFuel,ratio) %>% mutate(ratio = ratio * 100)))
+            REACT_Config_Carburants_2(data.frame(BioFuel_temp %>% mutate(BioFuel = rownames(BioFuel_temp)) %>% select(BioFuel,ratio) %>% mutate(ratio = ratio * 100)))
+            
+            #importation ACUsage
+            AC_temp <- left_join(ACUsage_temp,aggregate(Parc_utilisateur_temp$Part, by = list(Parc_utilisateur_temp$Fuel,Parc_utilisateur_temp$Segment,Parc_utilisateur_temp$Euro.Standard), sum), by = c("Fuel" = "Group.1","Segment"="Group.2","Euro.Standard"="Group.3"))
+            InstalledAC <- aggregate(AC_temp$InstalledAC*AC_temp$x, by = list(AC_temp$Euro.Standard), sum)$x/aggregate(AC_temp$x, by = list(AC_temp$Euro.Standard), sum)$x 
+            InstalledAC[is.na(InstalledAC)] <- aggregate(AC_temp$InstalledAC, by = list(AC_temp$Euro.Standard), mean)$x[is.na(InstalledAC)]
+            ACUsage <- aggregate(AC_temp$ACUsage*AC_temp$x, by = list(AC_temp$Euro.Standard), sum)$x/aggregate(AC_temp$x, by = list(AC_temp$Euro.Standard), sum)$x 
+            ACUsage[is.na(ACUsage)] <- aggregate(AC_temp$ACUsage, by = list(AC_temp$Euro.Standard), mean)$x[is.na(ACUsage)]
+            REACT_Config_AC(data.frame("Euro.Standard" = c("Euro 1","Euro 2","Euro 3","Euro 4","Euro 5","Euro 6b","Euro 6c","Euro 6d"), "InstalledAC" = InstalledAC*100,"ACUsage" = ACUsage*100))
+            REACT_Config_AC_2(data.frame("Euro.Standard" = c("Euro 1","Euro 2","Euro 3","Euro 4","Euro 5","Euro 6b","Euro 6c","Euro 6d"), "InstalledAC" = InstalledAC*100,"ACUsage" = ACUsage*100))
+            
+            #importation Temperature
+            REACT_Config_Temp(Temp_temp)
+            REACT_Config_Temp_2(Temp_temp)
+            
+            REACT_Config_Mobilite(data.frame("ltrip" = Autres_temp[1,"ltrip"]))
+            REACT_Config_ConsoHybride(data.frame("conso_elec" = Autres_temp[1,"conso_elec"], "hybrid_elec" = Autres_temp[1,"hybrid_elec"]))
+            REACT_Config_ConsoHybride_2(data.frame("conso_elec" = Autres_temp[1,"conso_elec"], "hybrid_elec" = Autres_temp[1,"hybrid_elec"]))
+            rm(Parc_utilisateur_temp,Infra_usage_temp,Mix_elec_temp,BioFuel_temp,ACUsage_temp,Temp_temp,Autres_temp,InstalledAC,AC_temp,ACUsage)
+            gc()
+            },silent = F)
+          if(class(try_mess)[1] == 'try-error'){
+            print(try_mess)
+            removeModal()
+            output$message_import <- renderText({"<font color='red'><b>Erreur de formatage des données</b></font>"})
+          }
+          else {
+            removeModal()
+            output$message_import <- renderText({"<font color='blue'><b>Importation réussie</b></font>"})
+          }
+        }
+      }  
     })
 
     # Lancement calcul ----
@@ -2856,39 +2884,58 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
     REACT_list_direct <- reactiveValues()
     REACT_Emis_conso_parc <- reactiveValues()
     
+    output$bouton_calcul <- renderUI({actionBttn(
+      "button_lancementCalcul",
+      "Calcul des impacts environnementaux",
+      style = "jelly",
+      color = "success",
+      size = "lg"
+    )})
+    observe({
+      if(length(REACT_list_calculs$nom) >= 8) {
+        output$bouton_calcul <- renderUI({disabled(actionBttn(
+          "button_lancementCalcul",
+          "Limite de calculs atteinte",
+          style = "jelly",
+          color = "danger",
+          size = "lg"
+        ))})
+        
+      }
+      else {
+        output$bouton_calcul <- renderUI({actionBttn(
+          "button_lancementCalcul",
+          "Calcul des impacts environnementaux",
+          style = "jelly",
+          color = "success",
+          size = "lg"
+        )})
+      }
+    })
+    
     observeEvent(input$button_lancementCalcul,{
       
-      showModal(modalDialog('Calcul en cours ...', footer = NULL))
-      if(input$Input_Configurateur_UploadConfig == "ConfigDefaut") {
-        Config <- list(Parc_utilisateur = REACT_SuperParcUtilisateur() %>% filter(Part != 0),
-                       Temp = REACT_SuperTemp(),
-                       BioFuel = REACT_SuperBioFuel(),
-                       AC_usage = REACT_SuperACUsage(),
-                       Infra_usage = REACT_SuperInfra_usage(),
-                       Mix_elec = REACT_SuperMix_elec(),
-                       conso_elec = REACT_Super_conso_elec(),
-                       hybrid_elec = REACT_Super_hybrid_elec(),
-                       ltrip = REACT_Super_ltrip(),
-                       liste_impacts_ACV = REACT_VISU_liste_impacts_ACV()) 
-      } else if(input$Input_Configurateur_UploadConfig == "ConfigUpload") {
-        Config <- list(Parc_utilisateur = REACT_Upload_Config_Parc() %>% filter(Part != 0),
-                       Temp = REACT_Upload_Config_Temp(),
-                       BioFuel = REACT_Upload_Config_BioFuel(),
-                       AC_usage = REACT_Upload_Config_Clim(),
-                       Infra_usage = REACT_Upload_Config_Infra(),
-                       Mix_elec = REACT_Upload_Config_Elec(),
-                       conso_elec = REACT_Super_conso_elec(),
-                       hybrid_elec = REACT_Super_hybrid_elec(),
-                       ltrip = REACT_Super_ltrip(),
-                       liste_impacts_ACV = REACT_VISU_liste_impacts_ACV()) 
-      }
+      showModal(modalDialog(HTML('<h2><i class="fa fa-gear fa-spin fa-2x" style="color: firebrick"></i> Calcul en cours ...</h2>'), footer = NULL, size = "l"))
       
+      Config <- list(Parc_utilisateur = REACT_SuperParcUtilisateur() %>% filter(Part != 0),
+                     Temp = REACT_SuperTemp(),
+                     BioFuel = REACT_SuperBioFuel(),
+                     AC_usage = REACT_SuperACUsage(),
+                     Infra_usage = REACT_SuperInfra_usage(),
+                     Mix_elec = REACT_SuperMix_elec(),
+                     conso_elec = REACT_Super_conso_elec(),
+                     hybrid_elec = REACT_Super_hybrid_elec(),
+                     ltrip = REACT_Super_ltrip(),
+                     liste_impacts_ACV = REACT_VISU_liste_impacts_ACV())
+      if(nrow(Config[["Parc_utilisateur"]]) == 1){
+        Config[["Parc_utilisateur"]] <- REACT_SuperParcUtilisateur()
+      }
       Emis_conso <- Ajout_elec(Config[["conso_elec"]],Config[["hybrid_elec"]],Config[["ltrip"]],Config[["Temp"]],Config[["BioFuel"]],Config[["AC_usage"]])													
+      gc()
       Emis_conso_unitaire <- Copert_Parc(Config[["Parc_utilisateur"]], Emis_conso)
       Impacts_unitaire <- Impacts_total(Config[["Parc_utilisateur"]],Config[["Infra_usage"]],Config[["Mix_elec"]],Emis_conso_unitaire,REACT_liste_impacts_ACV(),input$Input_detail_ACV)
       Emis_conso_parc <- Config[["Parc_utilisateur"]]$Part*Emis_conso_unitaire
       Impacts_parc <- lapply(Impacts_unitaire,function(i) Config[["Parc_utilisateur"]]$Part*i)
-      
       if("carburants" %in% input$Input_LancementCalcul_GazCarburants){
         tri_direct_parc <- tri_gaz_carb(Emis_conso_parc,
                                         list_gaz = input$Input_LancementCalcul_GazCarburants[input$Input_LancementCalcul_GazCarburants != "carburants"],
@@ -2903,6 +2950,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
       REACT_list_Impacts_parc[[input$nom_calcul]] <- Impacts_parc
       REACT_list_direct[[input$nom_calcul]] <- tri_direct_parc
       REACT_Emis_conso_parc[[input$nom_calcul]] <- Emis_conso_parc
+      gc()
       removeModal()
     })
     
@@ -2912,6 +2960,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
       REACT_list_Impacts_parc[[input$calcul_suppr]] <- NULL
       REACT_list_direct[[input$calcul_suppr]] <- NULL
       REACT_Emis_conso_parc[[input$nom_calcul]] <- NULL
+      gc()
     })
     
     output$DT_liste_calculs <- renderDT({ datatable(data.frame(Calculs = REACT_list_calculs$nom),
@@ -3033,9 +3082,9 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
         } else if(choix_vitesse == "reseau") {
           usage_reseau <- REACT_list_config[[config]][["Infra_usage"]]$Utilisation
           vitesses_reseau <- apply(distrib_vitesse,1,function(i) sum(i*usage_reseau))
-          data_vit <- apply(Data_Impacts_parc[,,,-1], MARGIN = c(1,3,4), function(i) sum(i*vitesses_reseau))
+          data_vit <- apply(Data_Impacts_parc[,,,-1,drop=FALSE], MARGIN = c(1,3,4), function(i) sum(i*vitesses_reseau))
         } else {
-          data_vit <- apply(Data_Impacts_parc[,,,-1], MARGIN = c(1,3,4), function(i) sum(i*distrib_vitesse[,choix_vitesse]))
+          data_vit <- apply(Data_Impacts_parc[,,,-1,drop=FALSE], MARGIN = c(1,3,4), function(i) sum(i*distrib_vitesse[,choix_vitesse]))
         }
         
         # Formatage de la données pour graph plotly
@@ -3054,7 +3103,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
         }
         data <- data.frame(Categories = rownames(data),data)
         data <- data %>% mutate(Categories = renames_all(data$Categories))
-        data <- data[tri_perso(data$Categories,couleurs$Nom),]
+        data <- data[tri_perso(data$Categories,couleurs$Nom),,drop=FALSE]
         temp_color <- couleurs$HEX_trait[match(data$Categories, couleurs$Nom)]
         all_buttons <- list()
         for(i in 2:ncol(data)) {
@@ -3076,7 +3125,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
           updatemenus = list(list(buttons=all_buttons, xanchor = "center",x=0.5,y=1.1, yanchor = "top",bgcolor = "white",font=list(size=16))),
           paper_bgcolor = "#ecf0f5",
           showlegend=F)
-        Synthese_Export$Export = rbind(c(data[,1],"Total"),data.frame(t(data[,-1]), Total = colSums(data[,-1])))
+        Synthese_Export$Export = rbind(c(data[,1],"Total"),data.frame(t(data[,-1,drop=FALSE]), Total = colSums(data[,-1,drop=FALSE])))
         fig
       }
     })
@@ -3760,9 +3809,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
           
           Data_Impacts_parc <- c(
             Data_Impacts_parc,
-            list(REACT_list_Impacts_parc[[config[i]]][["Total"]][,,impact,]) 
-            # list(REACT_list_Impacts_parc[[config[i]]][["Total"]] %>% 
-            #        multi_select(REACT_list_config[[config]][["liste_impacts_ACV"]]$Abrev,'+',3))
+            list(REACT_list_Impacts_parc[[config[i]]][["Total"]][,,impact,])
           ) 
           next
         }
@@ -3772,7 +3819,6 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
         
         data <- Data_Impacts_parc[[1]][,-1]
         for(i in 2:length(config)) {
-          # data <- abind(data,Data_Impacts_parc[[i]][,impact,-1], along = 3)
           data <- abind(data,Data_Impacts_parc[[i]][,-1], along = 3)
           next
         }
@@ -3897,42 +3943,23 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
         Data_Emis_conso_parc <- REACT_Emis_conso_parc[[config]]
         
         if(choix_vitesse == "perso") {
-          sankey <- sankey_energie(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_conso_parc,Data_Mix_elec,vitesse, coef_frott, surf_frontales)
-          links <- sankey[["links"]]
-          nodes <- sankey[["nodes"]]
           SankeyEnergie_Export$vitesse <- paste0("Vitesse :",as.character(vitesse)," km/h")
+          sankey <- sankey_energie(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_conso_parc,Data_Mix_elec,vitesse, coef_frott, surf_frontales)
         } else if(choix_vitesse == "reseau") {
           usage_reseau <- REACT_list_config[[config]][["Infra_usage"]]$Utilisation
           vitesses_reseau <- apply(distrib_vitesse,1,function(i) sum(i*usage_reseau))
           SankeyEnergie_Export$vitesse <- paste0("Vitesse du réseau :",vitesse_reseau(REACT_list_config[[input$Input_Analyses_MonoFluxEnergie_ChoixConfig]])," km/h")
-          vitesses <- 5:130
-          sankey <- sankey_energie(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_conso_parc,Data_Mix_elec,vitesses[1], coef_frott, surf_frontales)
-          links <- sankey[["links"]]
-          nodes <- sankey[["nodes"]]
-          links$value <- links$value*vitesses_reseau[1]
-          
-          for (i in 2:126) {
-            sankey <- sankey_energie(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_conso_parc,Data_Mix_elec,vitesses[i], coef_frott, surf_frontales)
-            links$value <- links$value+sankey[["links"]][,"value"]*vitesses_reseau[i]
-            next
-          }
-          
+          sankey <- sankey_energie(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_conso_parc,Data_Mix_elec,vitesses_reseau, coef_frott, surf_frontales)
         } else {
-          vitesses <- 5:130
-          sankey <- sankey_energie(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_conso_parc,Data_Mix_elec,vitesses[1], coef_frott, surf_frontales)
-          links <- sankey[["links"]]
-          nodes <- sankey[["nodes"]]
-          links$value <- links$value*distrib_vitesse[1,as.character(choix_vitesse)]
+          sankey <- sankey_energie(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_conso_parc,Data_Mix_elec,distrib_vitesse[,as.character(choix_vitesse)], coef_frott, surf_frontales)
           if(choix_vitesse == "lent") {SankeyEnergie_Export$vitesse <- "Vitesse lente : 32 km/h"}
           if(choix_vitesse == "moyen") {SankeyEnergie_Export$vitesse <- "Vitesse moyenne : 51 km/h"}
           if(choix_vitesse == "rapide") {SankeyEnergie_Export$vitesse <- "Vitesse rapide : 72 km/h"}
           if(choix_vitesse == "très.rapide") {SankeyEnergie_Export$vitesse <- "Vitesse très rapide : 106 km/h"}
-          for (i in 2:126) {
-            sankey <- sankey_energie(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_conso_parc,Data_Mix_elec,vitesses[i], coef_frott, surf_frontales)
-            links$value <- links$value+sankey[["links"]][,"value"]*distrib_vitesse[i,choix_vitesse]
-            next
-          }
         }
+        links <- sankey[["links"]]
+        nodes <- sankey[["nodes"]]
+        
         if(Sys.getlocale(category = "LC_CTYPE")=="French_France.1252") {
           nodes$name <- iconv(nodes$name,from = "UTF-8", to = "CP1252")
           links$source <- iconv(links$source,from = "UTF-8", to = "CP1252")
@@ -4050,30 +4077,30 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
       } else {
         Data_Impacts_parc <- REACT_list_Impacts_parc[[config]]
         if(choix_vitesse == "perso") {
-          data_vit <- lapply(Data_Impacts_parc,function(i) apply(i[,as.character(vitesse),,], MARGIN= c(2,3), sum))
+          data_vit <- lapply(Data_Impacts_parc,function(i) apply(i[,as.character(vitesse),,,drop=F], MARGIN= c(2,3), sum))
           MonoACVdetail_Export1$vitesse <- paste0("Vitesse :",as.character(vitesse)," km/h")
         } else if(choix_vitesse == "reseau") {
           usage_reseau <- REACT_list_config[[config]][["Infra_usage"]]$Utilisation
           vitesses_reseau <- apply(distrib_vitesse,1,function(i) sum(i*usage_reseau))
           MonoACVdetail_Export1$vitesse <- paste0("Vitesse du réseau :",vitesse_reseau(REACT_list_config[[input$Input_Analyses_MonoACVdetail_ChoixConfig]])," km/h")
-          data_vit <- lapply(Data_Impacts_parc,function(x) apply(x[,,,], MARGIN = c(3,4), function(i) sum(colSums(i)*vitesses_reseau)))
+          data_vit <- lapply(Data_Impacts_parc,function(x) apply(x[,,,,drop=F], MARGIN = c(3,4), function(i) sum(colSums(i)*vitesses_reseau)))
         } else {
-          data_vit <- lapply(Data_Impacts_parc,function(x) apply(x[,,,], MARGIN = c(3,4), function(i) sum(colSums(i)*distrib_vitesse[,choix_vitesse])))
+          data_vit <- lapply(Data_Impacts_parc,function(x) apply(x[,,,,drop=F], MARGIN = c(3,4), function(i) sum(colSums(i)*distrib_vitesse[,choix_vitesse])))
           if(choix_vitesse == "lent") {MonoACVdetail_Export1$vitesse <- "Vitesse lente : 32 km/h"}
           if(choix_vitesse == "moyen") {MonoACVdetail_Export1$vitesse <- "Vitesse moyenne : 51 km/h"}
           if(choix_vitesse == "rapide") {MonoACVdetail_Export1$vitesse <- "Vitesse rapide : 72 km/h"}
           if(choix_vitesse == "très.rapide") {MonoACVdetail_Export1$vitesse <- "Vitesse très rapide : 106 km/h"}
         }
         data <- data.frame(ids = c("Gaz","Carburants","Vehicules","Infrastructures"),
-                         labels=c("Gaz","Carburants","Vehicules","Infrastructures"),
-                         parents=c("","","",""),
-                         t(data_vit[["Total"]][REACT_list_config[[config]][["liste_impacts_ACV"]]$Abrev,-1]))
+                           labels=c("Gaz","Carburants","Vehicules","Infrastructures"),
+                           parents=c("","","",""),
+                           t(data_vit[["Total"]][REACT_list_config[[config]][["liste_impacts_ACV"]]$Abrev,-1,drop=F]))
         for(i in c("Gaz","Carburants","Vehicules","Infrastructures")) {
           Impacts <- data_vit[[i]]
           temp <- data.frame(ids = dimnames(Impacts)[[2]],
                              labels=dimnames(Impacts)[[2]],
                              parents=rep(i,dim(Impacts)[2]),
-                             t(Impacts[REACT_list_config[[config]][["liste_impacts_ACV"]]$Abrev,])
+                             t(Impacts[REACT_list_config[[config]][["liste_impacts_ACV"]]$Abrev,,drop=F])
           )
           data <- rbind(data,temp)			
           next
@@ -4086,7 +4113,7 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
                                    label = liste_impacts_ACV[as.character(names(data)[i+3]),"Indicators"])
           next
         }
-        temp_export <- data[,-c(1,3)]
+        temp_export <- data[,-c(1,3),drop=F]
         names(temp_export) <- c("Elements",paste0(as.character(liste_impacts_ACV$Indicators[names(temp_export)[-1]])," (",as.character(liste_impacts_ACV$Units[names(temp_export)[-1]]),")"))
         MonoACVdetail_Export1$Export <- temp_export
         fig <- plot_ly(ids=data$ids,labels = data$labels,parents = data$parents,values = data[,4],
@@ -4886,11 +4913,6 @@ observeEvent(c(input$Input_Configurateur_defautimportperso,input$Input_Configura
         
         data <- data.frame(Aggreg_veh(data,list_aggreg,sum))
         part_parc <- aggregate(Data_Parc_Utilisateur$Part, list_aggreg, sum)[which(aggregate(Data_Parc_Utilisateur$Part, list_aggreg, sum)[,"x"] != 0),"x"]
-        # data <- data.frame(type_veh = c(rownames(data),"Moyenne parc"),rbind(data/part_parc,colSums(data)))
-        # rownames(data) <- renames_all(data$type_veh)
-        # data <- data[tri_perso(rownames(data),couleurs$Nom),]
-        # data_relatif <- t(data[,-1])/as.numeric(data["Moyenne parc",-1])
-        # data_relatif <- data.frame(Impacts = liste_impacts_ACV[as.character(rownames(data_relatif)),"Indicators"], data_relatif)
         data <- data.frame(type_veh = c(rownames(data),"Moyenne parc"),rbind(data/part_parc,colSums(data)))
         rownames(data) <- data$type_veh
         data_relatif <- t(data[,-1])/as.numeric(data["Moyenne parc",-1])

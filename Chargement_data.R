@@ -12,7 +12,6 @@ if(importer == "non") {  load("data/para_defaut.RData")  }
 rm(importer)
 
 #chargement des parcs prédéfinis
-# Parc_utilisateur <- list(EGT2010 = read.csv2("data/Parc_EGT2010_arrondi.csv"), EGT2020 = read.csv2("data/Parc_EGT2010_2_arrondi.csv"))
 Parc_utilisateur <- list(EGT2010 = read.xlsx("data/Parc_EGT2010_arrondi.xlsx"), Lyon2015 = read.xlsx("data/Parc_Lyon2015.xlsx"), FR2020 = read.xlsx("data/Parc_FR2020.xlsx"))
 #Chargement des donnees brutes pre-traitees
 load("data/data_ini.RData")
@@ -22,15 +21,12 @@ liste_gaz <- c("CO2","NOx","CO","PM10","PM2.5","NMVOC") #choix parmi "CO2","NOx"
 liste_carburant <- c("Diesel","Essence","GPL","GNV","Elec") #Petrol = Essence ; GPL = LPG ; GNV = CNG ; choix parmi ("Diesel","Essence","GPL","GNV","Electricité")
 
 #liste des indicateurs ACV disponibles
-# liste_impacts_ACV <- read.csv("data/liste_impacts.csv", header = TRUE, sep = ";", dec = ",")
 liste_impacts_ACV <- read.xlsx("data/liste_impacts.xlsx")
 rownames(liste_impacts_ACV) <- liste_impacts_ACV$Abrev
 
 #Distribution des vitesse entre 5 et 130 pour les quatres sous cycles WLTC3b (lent, moyen, rapide et très rapide)
-# distrib_vitesse <- read.csv2("data/distrib_cycles.csv", sep = ";", dec = ",", row.names = 1)
 distrib_vitesse <- read.xlsx("data/distrib_cycles.xlsx",rowNames = TRUE)
 #Accélération moyenne pour chaque vitesse entre 5 et 130 m/s² calculé à partir du cycle WLTC3b, utilisé pour l'analyse de flux d'énergie sankey
-# accel_moy <- read.csv("data/acceleration.csv", header = TRUE, sep = ";", dec = ",", row.names = as.character(5:130))
 accel_moy <- read.xlsx("data/acceleration.xlsx")
 row.names(accel_moy) <- accel_moy$vit
 

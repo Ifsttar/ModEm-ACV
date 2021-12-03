@@ -1,6 +1,7 @@
 # Packages ####
 # import et manipulation de donnees
 require(dplyr)
+library(R.utils)
 require(ggplot2)
 require(tidyr)
 library(lubridate)

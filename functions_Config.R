@@ -66,7 +66,7 @@ Qcold_hot <- function(parametres,temp,vitesse) {
 }
 
 #suremission à froid pour un mois donné
-Cold_month <- function(temp) {
+Cold_month <- function(temp, ltrip=NA, ratio_annee=1) {
   
   for(p in c("CO","VOC")) {
     coef <- Cold[[p]]
@@ -94,26 +94,26 @@ Cold_month <- function(temp) {
     }
     next
   }
+  if(!is.na(ltrip)) {
+    facteur_beta <- function_Beta(ltrip,temp)
+  }
   resultats <- list(get(Pollutant_cold[1]),get(Pollutant_cold[2]),get(Pollutant_cold[3]),get(Pollutant_cold[4]),get(Pollutant_cold[5]))
   names(resultats) <- Pollutant_cold
+  if(!is.na(ltrip)) {
+    facteur_beta <- function_Beta(ltrip,temp)
+    ind_match <- match(as.character(interaction(resultats[[1]][,1:3])),as.character(interaction(facteur_beta[,2:4])))
+    resultats <- lapply(Pollutant_cold,function(x) cbind(resultats[[x]][,1:3],resultats[[x]][,-(1:3)] * facteur_beta[ind_match,x] / ratio_annee))
+    names(resultats) <- Pollutant_cold
+  }
   return(resultats)
 }
 
 #suremission à froid pour l'année
 Cold_year <- function(ltrip,temp) {
   
-  for(p in Pollutant_cold) {
-    temp_Cold <- Cold_month(temp$Temperature[1])[[p]]
-    increm <- temp_Cold[,4:129]*left_join(temp_Cold[,1:3],function_Beta(ltrip,temp$Temperature[1]),by = c("Fuel","Segment","Euro.Standard"))[,p]
-    for(m in 2:12){
-      temp_Cold <- Cold_month(temp$Temperature[m])[[p]]
-      increm <- increm + temp_Cold[,4:129]*left_join(temp_Cold[,1:3],function_Beta(ltrip,temp$Temperature[m]),by = c("Fuel","Segment","Euro.Standard"))[,p]
-      next
-    }
-    assign(p,cbind(Cold_month(temp$Temperature[1])[[p]][,1:3],increm/12))
-    next
-  }
-  resultats <- list(get(Pollutant_cold[1]),get(Pollutant_cold[2]),get(Pollutant_cold[3]),get(Pollutant_cold[4]),get(Pollutant_cold[5]))
+  monthly_results <- lapply(1:12, function(i) Cold_month(Temp$Temperature[i],ltrip = ltrip,ratio_annee = 12))
+  resultats <- lapply(1:5,function(x) Reduce('+',lapply(1:12,function(i) monthly_results[[i]][[x]][,-(1:3)])))
+  resultats <- lapply(resultats,function(x) cbind(monthly_results[[1]][[1]][,1:3],x))
   names(resultats) <- Pollutant_cold
   return(resultats)
 }
@@ -199,7 +199,6 @@ convert_fuel <- function(Table_conso,BioRatio) {
 
 #Calcul les emissions et conso avec copert
 Compil_Copert <- function(ltrip, temp, BioRatio,usageAC, steps = c("Hot","Cold","Clim","Oil")) {
-  
   #Hot emission
   Hot <- Hot_vitesse()
   Resultats <- Hot
@@ -217,7 +216,6 @@ Compil_Copert <- function(ltrip, temp, BioRatio,usageAC, steps = c("Hot","Cold",
     }
     Resultats <- (1+mat_cold)*Resultats
   }
-  
   #Clim emission
   if("Clim" %in% steps) {
     Clim <- NRJ_clim(temp)
@@ -233,13 +231,11 @@ Compil_Copert <- function(ltrip, temp, BioRatio,usageAC, steps = c("Hot","Cold",
   if(!("Hot" %in% steps)) {
     Resultats <- Resultats - Hot
   }
-  
   #particulates
   PMTSP <- matrix(NonExhaustPM$TSP, ncol = 126, nrow = length(Fuel), byrow = TRUE)+Resultats[,,"PM Exhaust"]
   PM10 <- matrix(NonExhaustPM$PM10, ncol = 126, nrow = length(Fuel), byrow = TRUE)+Resultats[,,"PM Exhaust"]
   PM2.5 <- matrix(NonExhaustPM$PM2.5, ncol = 126, nrow = length(Fuel), byrow = TRUE)+Resultats[,,"PM Exhaust"]
   Resultats <- abind(Resultats, PMTSP, PM10, PM2.5, make.names = TRUE) 
-  
   #Energy conversion
   Resultats <- abind(Resultats, convert_fuel(Resultats[,,"EC"],BioRatio), along = 3)
   #lubricant
@@ -250,12 +246,12 @@ Compil_Copert <- function(ltrip, temp, BioRatio,usageAC, steps = c("Hot","Cold",
   NMVOC <- Resultats[,,"VOC"] - Resultats[,,"CH4"]
   NMVOC[NMVOC < 0] <- 0
   Resultats <- abind(Resultats,NMVOC, along = 3,make.names = TRUE)
+  
   return(Resultats)
 }
 
 #AJoute les voitures electrique, une conso electrique ( possibilite de faire un tableau pour les conso) en kWh
 Ajout_elec <- function(conso_elec, hybrid_UF, ltrip ,temp, BioRatio ,usageAC, steps = c("Hot","Cold","Clim","Oil")) {
-  
   facteurs_veh <- Compil_Copert(ltrip,temp, BioRatio, usageAC, steps)
   RatioAC <- usageAC$InstalledAC*usageAC$ACUsage
   usageAC <- cbind(usageAC,RatioAC)
@@ -302,7 +298,7 @@ Impacts_elec <- function(para_elec,ACV_electricity) {
   medium <- (1+para_elec["Perte low",])-para_elec["photovoltaique",]/ratio
   high <- sum(para_elec[1:7,1])/(ratio*(1+para_elec["Perte high",]))
   
-  impacts <- colSums((para_elec[1:9,1]/ratio)*ACV_electricity[tolower(rownames(Mix_elec)[1:9]),]) + ACV_electricity["distrib_low",] + medium*ACV_electricity["distrib_medium",]+high*ACV_electricity["distrib_high",]
+  impacts <- colSums((para_elec[1:9,1]/ratio)*slice(ACV_electricity,match(tolower(rownames(Mix_elec)[1:9]),rownames(ACV_electricity)))) + filter(ACV_electricity,rownames(ACV_electricity)=="distrib_low") + medium*filter(ACV_electricity,rownames(ACV_electricity)=="distrib_medium")+high*filter(ACV_electricity,rownames(ACV_electricity)=="distrib_high")
   return(impacts)
 }
 
@@ -311,8 +307,8 @@ Impacts_infra <- function(para_infra, ACV_infrastructures, detail = FALSE) {
   R_tunnel <- sum(1000*para_infra$dont.tunnel*para_infra$Utilisation*para_infra$Allocation/(365*para_infra$flux.moyen.journalier))
   R_pont <- sum(1000*para_infra$dont.pont*para_infra$Utilisation*para_infra$Allocation/(365*para_infra$flux.moyen.journalier))
   
-  impacts <- rbind((1000*para_infra$Utilisation*para_infra$nb.voies*para_infra$Allocation/(365*para_infra$flux.moyen.journalier))*ACV_infrastructures[rownames(para_infra),],
-                   R_tunnel*ACV_infrastructures["Tunnel",],R_pont*ACV_infrastructures["Pont",])
+  impacts <- rbind((1000*para_infra$Utilisation*para_infra$nb.voies*para_infra$Allocation/(365*para_infra$flux.moyen.journalier))*slice(ACV_infrastructures,match(rownames(para_infra),rownames(ACV_infrastructures))),
+                   R_tunnel*filter(ACV_infrastructures,rownames(ACV_infrastructures)=="Tunnel"),R_pont*filter(ACV_infrastructures,rownames(ACV_infrastructures)=="Pont"))
   if(!detail) {return(colSums(impacts))}
   
   return(t(impacts))
@@ -325,11 +321,11 @@ Impacts_vehicules <- function(parc, ACV_vehicules, detail = FALSE) {
   id_dechet <- rep("Dechet_ICE",nrow(parc))
   id_dechet[which(parc$Fuel == "Electric")] <- "Dechet_Elec"
   
-  maintenance <- ACV_vehicules[id_maint,]
-  dechets <- as.matrix((parc$M_carros+parc$M_moteur_Elec+parc$M_moteur_ICE)/parc$DV_veh)*ACV_vehicules[id_dechet,]
-  moteur <- as.matrix(parc$M_moteur_ICE/parc$DV_veh)%*%as.matrix(ACV_vehicules["Moteur_ICE",]) + as.matrix(parc$M_moteur_Elec/parc$DV_veh)%*%as.matrix(ACV_vehicules["Moteur_Elec",])
-  carrosserie <- as.matrix(parc$M_carros/parc$DV_veh)%*%as.matrix(ACV_vehicules["Carrosserie",])
-  batterie <-  as.matrix(parc$M_batterie/parc$DV_batterie)%*%as.matrix(ACV_vehicules["Batterie",])
+  maintenance <-  slice(ACV_vehicules,match(id_maint,rownames(ACV_vehicules)))
+  dechets <- as.matrix((parc$M_carros+parc$M_moteur_Elec+parc$M_moteur_ICE)/parc$DV_veh)*slice(ACV_vehicules,match(id_dechet,rownames(ACV_vehicules)))
+  moteur <- as.matrix(parc$M_moteur_ICE/parc$DV_veh)%*%as.matrix(filter(ACV_vehicules,rownames(ACV_vehicules)=="Moteur_ICE")) + as.matrix(parc$M_moteur_Elec/parc$DV_veh)%*%as.matrix(filter(ACV_vehicules,rownames(ACV_vehicules)=="Moteur_Elec"))
+  carrosserie <- as.matrix(parc$M_carros/parc$DV_veh)%*%as.matrix(filter(ACV_vehicules,rownames(ACV_vehicules)=="Carrosserie"))
+  batterie <-  as.matrix(parc$M_batterie/parc$DV_batterie)%*%as.matrix(filter(ACV_vehicules,rownames(ACV_vehicules)=="Batterie"))
 
   impacts <- abind(carrosserie,moteur,batterie,maintenance,dechets, along = 3, make.names = TRUE)
   
@@ -343,28 +339,26 @@ Copert_Parc <- function(parc,facteur_copert) {
   SegmentBis <- parc$Segment
   EuroBis <- parc$Euro.Standard
   TechnoBis <- parc$Technology
-  # levels(EuroBis) <- c(levels(EuroBis),"Euro 6")
   
   SegmentBis[which(SegmentBis == "Mini" & EuroBis %in% c("Euro 1", "Euro 2", "Euro 3"))] <- "Small"
-  # EuroBis[which(EuroBis %in% c("Euro 6b","Euro 6c","Euro 6d") & parc$Fuel %in% c("LPG","CNG"))] <- "Euro 6"
   TechnoBis[parc$Fuel == "Petrol Hybrid" & EuroBis %in% c("Euro 1", "Euro 2", "Euro 3")] <- "GDI"
   EuroBis[parc$Fuel %in% c("Petrol Hybrid","CNG","Electric") & EuroBis %in% c("Euro 1", "Euro 2", "Euro 3")] <- "Euro 4"
   
-  id_mat <- match(paste(parc$Category,parc$Fuel,SegmentBis,EuroBis,TechnoBis, sep = "_"),dimnames(facteur_copert)[[1]])
+  id_mat <- paste(parc$Category,parc$Fuel,SegmentBis,EuroBis,TechnoBis, sep = "_")
   
-  #resultats <- parc$Part*facteur_copert[id_mat,,]
+  id_mat <- match(id_mat,dimnames(facteur_copert)[[1]])
+  
   facteur_copert[id_mat,,"NOx"] <- facteur_copert[id_mat,,"NOx"]*(1-parc$RedNOxEuro6)
   resultats <- facteur_copert[id_mat,,]
-  
   return(resultats)
 }
 
 #Calcul les impacts ACV pour l'ensemble des phases
 Impacts_total <- function(parc, para_infra, para_elec, facteur_copert, list_impacts, detail = FALSE) {
-  imp_infra <- Impacts_infra(para_infra,ACV_infrastructures[,as.character(list_impacts$Abrev)], detail)
-  imp_veh <- Impacts_vehicules(parc, ACV_vehicules[,as.character(list_impacts$Abrev)], detail)
-
-  #copert <- Copert_Parc(parc, facteur_copert)
+  
+  imp_infra <- Impacts_infra(para_infra,subset(ACV_infrastructures, select = as.character(list_impacts$Abrev)), detail)
+  imp_veh <- Impacts_vehicules(parc, subset(ACV_vehicules, select = as.character(list_impacts$Abrev)), detail)
+  
   emissions <- facteur_copert[,,c(rownames(ACV_gaz),"NMVOC")]/1000
   dimnames(facteur_copert)[[3]][which(dimnames(facteur_copert)[[3]] == "BioCNG")] <- "Biomethane"
   dimnames(facteur_copert)[[3]][which(dimnames(facteur_copert)[[3]] == "Petrol")] <- "Essence"
@@ -382,44 +376,46 @@ Impacts_total <- function(parc, para_infra, para_elec, facteur_copert, list_impa
     imp_infra <- array(rep(imp_infra,each = nrow(parc)*126),dim = c(nrow(parc),126,length(imp_infra)))
     imp_veh <- aperm(replicate(126,imp_veh,simplify = "array"),c(1,3,2))
   }
-
+  
   elec <-  facteur_copert[,,"electricity"]
-  imp_elec <- Impacts_elec(para_elec,ACV_electricity[,as.character(list_impacts$Abrev)])
+  imp_elec <- Impacts_elec(para_elec,subset(ACV_electricity,select = as.character(list_impacts$Abrev)))
   
   if(detail) {
     imp_carb <- array(consommation, c(dim(consommation),length(list_impacts$Abrev)))
-    imp_carb <- imp_carb*array(rep(unlist(ACV_carburants[,as.character(list_impacts$Abrev)]),each = dim(consommation)[1]*dim(consommation)[2]), dim = dim(imp_carb))
-    dimnames(imp_carb) <- list(1:nrow(parc),5:130,dimnames(consommation)[[3]],names(ACV_carburants[,as.character(list_impacts$Abrev)]))
+    imp_carb <- imp_carb*array(rep(unlist(subset(ACV_carburants,select = as.character(list_impacts$Abrev))),each = dim(consommation)[1]*dim(consommation)[2]), dim = dim(imp_carb))
+    dimnames(imp_carb) <- list(1:nrow(parc),5:130,dimnames(consommation)[[3]],names(subset(ACV_carburants,select = as.character(list_impacts$Abrev))))
     imp_carb <- abind(imp_carb,Electricity = Calcul_matrice(elec,imp_elec), along = 3)
     imp_carb <- aperm(imp_carb,c(1,2,4,3))
   } else {
-    imp_carb <- Calcul_matrice(consommation,ACV_carburants[,as.character(list_impacts$Abrev)])
+    imp_carb <- Calcul_matrice(consommation,subset(ACV_carburants,select = as.character(list_impacts$Abrev)))
     imp_carb <- imp_carb + Calcul_matrice(elec,imp_elec)
   }
-
+  
   if(detail) {
-    temp_gaz <- array(emissions[,,rownames(ACV_gaz)],c(dim(emissions[,,rownames(ACV_gaz)]),ncol(ACV_gaz[,as.character(list_impacts$Abrev)])))
-    temp_gaz <- temp_gaz*array(rep(unlist(ACV_gaz[,as.character(list_impacts$Abrev)]),each = dim(temp_gaz)[1]*dim(temp_gaz)[2]), dim = dim(temp_gaz))
-    dimnames(temp_gaz) <- list(1:nrow(parc),5:130,rownames(ACV_gaz),names(ACV_gaz[,as.character(list_impacts$Abrev)]))
-    imp_gaz <- abind(CO2 = temp_gaz[,,"CO2",],Particules = temp_gaz[,,"PMTSP",]+temp_gaz[,,"PM10",]+temp_gaz[,,"PM2.5",], NOx =  temp_gaz[,,"NOx",],
-                     NMVOV = temp_gaz[,,"VOC",], Autres = temp_gaz[,,"CO",]+temp_gaz[,,"CH4",]+temp_gaz[,,"N2O",]+temp_gaz[,,"NH3",],along = 4)
-    imp_gaz[,,,"Particules"] <- imp_gaz[,,,"Particules"] + aperm(replicate(nrow(parc),as.matrix(NonExhaustPM[,c("PM_tyre","PM_break")]/1000)%*%as.matrix(ACV_particules[,as.character(list_impacts$Abrev)]),simplify = "array"),c(3,1,2))				
-    imp_gaz[,,,"NMVOV"] <- imp_gaz[,,,"NMVOV"] + multiply_matrice(emissions[,,"NMVOC"],ACV_NMVOC[,as.character(list_impacts$Abrev)][parc$Fuel,])
-    imp_gaz[,,,"Autres"] <- imp_gaz[,,,"Autres"] + Calcul_matrice(consommation[,,rownames(ACV_fuel_metal)],ACV_fuel_metal[,as.character(list_impacts$Abrev)])
-    + aperm(replicate(126,as.matrix(ACV_othersPollutants[match(paste(parc$Fuel,parc$Euro.Standard, sep = "_"),paste(ACV_othersPollutants[,1],ACV_othersPollutants[,2], sep = "_")),-c(1,2)][,as.character(list_impacts$Abrev)]),simplify = "array"),c(1,3,2))
+    temp_gaz <- array(emissions[,,rownames(ACV_gaz)],c(dim(emissions[,,rownames(ACV_gaz)]),ncol(subset(ACV_gaz,select = as.character(list_impacts$Abrev)))))
+    temp_gaz <- temp_gaz*array(rep(unlist(subset(ACV_gaz,select = as.character(list_impacts$Abrev))),each = dim(temp_gaz)[1]*dim(temp_gaz)[2]), dim = dim(temp_gaz))
+    dimnames(temp_gaz) <- list(1:nrow(parc),5:130,rownames(ACV_gaz),names(subset(ACV_gaz,select = as.character(list_impacts$Abrev))))
+    imp_gaz <- aperm(abind(CO2 = extract(temp_gaz,"CO2",dims=3),Particules = extract(temp_gaz,"PMTSP",dims=3)+extract(temp_gaz,"PM10",dims=3)+extract(temp_gaz,"PM2.5",dims=3), NOx =  extract(temp_gaz,"NOx",dims=3),
+                     NMVOV = extract(temp_gaz,"VOC",dims=3), Autres = extract(temp_gaz,"CO",dims=3)+extract(temp_gaz,"CH4",dims=3)+extract(temp_gaz,"N2O",dims=3)+extract(temp_gaz,"NH3",dims=3),along = 3,make.names = TRUE),c(1,2,4,3))
+    dimnames(imp_gaz)[[4]] <- c("CO2","Particules","NOx","NMVOV","Autres")
+    imp_gaz[,,,"Particules"] <- extract(imp_gaz,"Particules",dims=4) + aperm(replicate(1,replicate(nrow(parc),as.matrix(NonExhaustPM[,c("PM_tyre","PM_break")]/1000)%*%as.matrix(subset(ACV_particules,select = as.character(list_impacts$Abrev))),simplify = "array"),simplify = "array"),c(3,1,2,4))				
+    imp_gaz[,,,"NMVOV"] <- extract(imp_gaz,"NMVOV",dims=4) + replicate(1,multiply_matrice(emissions[,,"NMVOC"],slice(subset(ACV_NMVOC,select = as.character(list_impacts$Abrev)),match(parc$Fuel,rownames(ACV_NMVOC)))),simplify = "array")
+    imp_gaz[,,,"Autres"] <- extract(imp_gaz,"Autres",dims=4) + replicate(1,Calcul_matrice(consommation[,,rownames(ACV_fuel_metal)],subset(ACV_fuel_metal,select = as.character(list_impacts$Abrev)))
+    + aperm(replicate(126,as.matrix(ACV_othersPollutants[match(paste(parc$Fuel,parc$Euro.Standard, sep = "_"),paste(ACV_othersPollutants[,1],ACV_othersPollutants[,2], sep = "_")),-c(1,2)][,as.character(list_impacts$Abrev)]),simplify = "array"),c(1,3,2)),simplify = "array")
   } else {
     #impacts gaz principaux
-    imp_gaz <- Calcul_matrice(emissions[,,rownames(ACV_gaz)],ACV_gaz[,as.character(list_impacts$Abrev)])
+    imp_gaz <- Calcul_matrice(emissions[,,rownames(ACV_gaz)],subset(ACV_gaz,select = as.character(list_impacts$Abrev)))
     #impacts NMVOC
-    imp_gaz <- imp_gaz + multiply_matrice(emissions[,,"NMVOC"],ACV_NMVOC[,as.character(list_impacts$Abrev)][parc$Fuel,])
+    imp_gaz <- imp_gaz + multiply_matrice(emissions[,,"NMVOC"],subset(ACV_NMVOC,select = as.character(list_impacts$Abrev))[parc$Fuel,])
     #metaux contenus dans les particues de pneus et de freins
-    imp_gaz <- imp_gaz + aperm(replicate(nrow(parc),as.matrix(NonExhaustPM[,c("PM_tyre","PM_break")]/1000)%*%as.matrix(ACV_particules[,as.character(list_impacts$Abrev)]),simplify = "array"),c(3,1,2))
+    imp_gaz <- imp_gaz + aperm(replicate(nrow(parc),as.matrix(NonExhaustPM[,c("PM_tyre","PM_break")]/1000)%*%as.matrix(subset(ACV_particules,select = as.character(list_impacts$Abrev))),simplify = "array"),c(3,1,2))
     #metaux contenus dans les carburants fossils (essence et diesel)
-    imp_gaz <- imp_gaz + Calcul_matrice(consommation[,,rownames(ACV_fuel_metal)],ACV_fuel_metal[,as.character(list_impacts$Abrev)])
+    imp_gaz <- imp_gaz + Calcul_matrice(consommation[,,rownames(ACV_fuel_metal)],subset(ACV_fuel_metal,select = as.character(list_impacts$Abrev)))
     #autres polluants (dont issue d huile) cst par type de vehicule
-    imp_gaz <- imp_gaz + aperm(replicate(126,as.matrix(ACV_othersPollutants[match(paste(parc$Fuel,parc$Euro.Standard, sep = "_"),paste(ACV_othersPollutants[,1],ACV_othersPollutants[,2], sep = "_")),-c(1,2)][,as.character(list_impacts$Abrev)]),simplify = "array"),c(1,3,2))
+    imp_gaz <- imp_gaz + aperm(replicate(126,as.matrix(slice(subset(ACV_othersPollutants,select = as.character(list_impacts$Abrev)),match(paste(parc$Fuel,parc$Euro.Standard, sep = "_"),paste(ACV_othersPollutants[,1],ACV_othersPollutants[,2], sep = "_")))),simplify = "array"),c(1,3,2))
+      # ACV_othersPollutants[match(paste(parc$Fuel,parc$Euro.Standard, sep = "_"),paste(ACV_othersPollutants[,1],ACV_othersPollutants[,2], sep = "_")),-c(1,2)][,as.character(list_impacts$Abrev)]),simplify = "array"),c(1,3,2))
   }
-
+  
   if("Biodiv_GWP" %in% list_impacts$Abrev) {
     if(detail) {
         imp_infra <- abind(imp_infra,Sante = fast_sum_apply(imp_infra[,,which(substr(dimnames(imp_infra)[[3]],1,5) == "Sante"),],3),Biodiv = fast_sum_apply(imp_infra[,,which(substr(dimnames(imp_infra)[[3]],1,6) == "Biodiv"),],3),along = 3)
@@ -427,10 +423,10 @@ Impacts_total <- function(parc, para_infra, para_elec, facteur_copert, list_impa
         imp_carb <- abind(imp_carb,Sante = fast_sum_apply(imp_carb[,,which(substr(dimnames(imp_carb)[[3]],1,5) == "Sante"),],3),Biodiv = fast_sum_apply(imp_carb[,,which(substr(dimnames(imp_carb)[[3]],1,6) == "Biodiv"),],3),along = 3)
         imp_gaz <- abind(imp_gaz,Sante = fast_sum_apply(imp_gaz[,,which(substr(dimnames(imp_gaz)[[3]],1,5) == "Sante"),],3),Biodiv = fast_sum_apply(imp_gaz[,,which(substr(dimnames(imp_gaz)[[3]],1,6) == "Biodiv"),],3),along = 3)	
     } else {
-      dimnames(imp_infra)[[3]] <- names(ACV_carburants[,as.character(list_impacts$Abrev)])
-      dimnames(imp_veh)[[3]] <- names(ACV_carburants[,as.character(list_impacts$Abrev)])
-      dimnames(imp_carb)[[3]] <- names(ACV_carburants[,as.character(list_impacts$Abrev)])
-      dimnames(imp_gaz)[[3]] <- names(ACV_carburants[,as.character(list_impacts$Abrev)])
+      dimnames(imp_infra)[[3]] <- names(subset(ACV_carburants,select = as.character(list_impacts$Abrev)))
+      dimnames(imp_veh)[[3]] <- names(subset(ACV_carburants,select = as.character(list_impacts$Abrev)))
+      dimnames(imp_carb)[[3]] <- names(subset(ACV_carburants,select = as.character(list_impacts$Abrev)))
+      dimnames(imp_gaz)[[3]] <- names(subset(ACV_carburants,select = as.character(list_impacts$Abrev)))
       imp_infra <- abind(imp_infra,Sante = fast_sum_apply(imp_infra[,,which(substr(dimnames(imp_infra)[[3]],1,5) == "Sante")],3),Biodiv = fast_sum_apply(imp_infra[,,which(substr(dimnames(imp_infra)[[3]],1,6) == "Biodiv")],3),along = 3)
       imp_veh <- abind(imp_veh,Sante = fast_sum_apply(imp_veh[,,which(substr(dimnames(imp_veh)[[3]],1,5) == "Sante")],3),Biodiv = fast_sum_apply(imp_veh[,,which(substr(dimnames(imp_veh)[[3]],1,6) == "Biodiv")],3) ,along = 3)
       imp_carb <- abind(imp_carb,Sante = fast_sum_apply(imp_carb[,,which(substr(dimnames(imp_carb)[[3]],1,5) == "Sante")],3),Biodiv = fast_sum_apply(imp_carb[,,which(substr(dimnames(imp_carb)[[3]],1,6) == "Biodiv")],3),along = 3)
@@ -447,7 +443,6 @@ Impacts_total <- function(parc, para_infra, para_elec, facteur_copert, list_impa
     imp_gaz <- fast_sum_apply(imp_gaz,4)
   }
   imp_total <- imp_gaz+imp_carb+imp_veh+imp_infra
-  
   Resultats <- c(Total = list(abind(imp_total,imp_gaz,imp_carb,imp_veh,imp_infra, along = 4, new.names = list(1:nrow(parc),5:130,dimnames(imp_total)[[3]],c("Total","Gaz","Carburant","Vehicule","Infrastructures")))),Resultats)
   
   return(Resultats)
@@ -481,6 +476,10 @@ fast_sum_apply <- function(A,dim) {
         next
       }
     }
+    if(length(dim(temp))<2) {
+      temp <- replicate(1,temp,simplify = "array")
+      dimnames(temp)[[2]] <- dimnames(A)[[2]]
+    }
     return(temp)
   }
   if(length(dim(A)) == 4) {
@@ -511,6 +510,10 @@ fast_sum_apply <- function(A,dim) {
         temp <- temp + A[,,,i]
         next
       }
+    }
+    if(length(dim(temp))<3) {
+      temp <- replicate(1,temp,simplify = "array")
+      dimnames(temp)[[3]] <- dimnames(A)[[3]]
     }
     return(temp)	
   }
@@ -550,6 +553,10 @@ fast_sum_apply <- function(A,dim) {
         next
       }
     }
+    if(length(dim(temp))<4) {
+      temp <- replicate(1,temp,simplify = "array")
+      dimnames(temp)[[4]] <- dimnames(A)[[4]]
+    }
     return(temp)		
   }
 }
@@ -586,7 +593,7 @@ multiply_matrice <- function(A,B) {
 #charger un excel de parametres
 charger_para_xslx <- function(fichier,ltrip,conso_elec,hybrid_elec) {
   xslx_para <- loadWorkbook(file = fichier)
-  BioFuel <- read.xlsx(xslx_para,sheet = "Fuel",)
+  BioFuel <- read.xlsx(xslx_para,sheet = "Fuel")
   BioFuel <- data.frame(ratio = BioFuel[,2], row.names = BioFuel[,1])
   assign("BioFuel",BioFuel,.GlobalEnv)
   
@@ -649,30 +656,11 @@ multi_select <- function(A,B,signe = '+',dim) {
   if(signe == '+') {C <- match(B,noms, nomatch = 0)}
   if(signe == '-') {C <- -match(B,noms, nomatch = 0)}
   
-  
-  if(length(dim(A)) == 2) {
-    if(dim == 1) {return(A[C,])}
-    if(dim == 2) {return(A[,C])}
+  if(all(C == 0)){return(A)}
+  else {
+    return(extract(A,C,dims=dim))
   }
-  if(length(dim(A)) == 3) {
-    if(dim == 1) {return(A[C,,])}
-    if(dim == 2) {return(A[,C,])}
-    if(dim == 3) {return(A[,,C])}
-  }
-  if(length(dim(A)) == 4) {
-    if(dim == 1) {return(A[C,,,])}
-    if(dim == 2) {return(A[,C,,])}
-    if(dim == 3) {return(A[,,C,])}
-    if(dim == 4) {return(A[,,,C])}	
-  }
-  if(length(dim(A)) == 5) {
-    if(dim == 1) {return(A[C,,,,])}
-    if(dim == 2) {return(A[,C,,,])}
-    if(dim == 3) {return(A[,,C,,])}
-    if(dim == 4) {return(A[,,,C,])}
-    if(dim == 5) {return(A[,,,,C])}
-  }	
-}	
+}
 
 #Calcul la vitesse moyenne du réseau en fonction de la repartition autoroute 106 km/h ,route prim 72 km/h, route second 51 km/h, route tertiaire 32 km/h (les vitesses des cycle WLTC3b)
 vitesse_reseau <- function(config) {
@@ -681,7 +669,11 @@ vitesse_reseau <- function(config) {
 
 #fonction pour calculer les données du sankey
 sankey_energie <- function(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_conso_parc,Data_Mix_elec,vitesse, coef_frott, surf_frontales) {
-  vit <- as.character(vitesse)
+  if(length(vitesse) == 126) {
+    vit <- as.character(5:130)
+    coef_vit <- vitesse
+  }
+  else{vit <- as.character(vitesse)}
   
   carburants <- data.frame(
     english=c("Diesel","Biodiesel","Petrol","Bioethanol","ETBE","LPG","CNG","BioCNG","electricity"),
@@ -716,25 +708,36 @@ sankey_energie <- function(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_c
   if(!("Infrastructures" %in% dimnames(Data_Impacts_parc)[[4]])) {
     nodes <- nodes[c(-4,-11:-13),]		
   }
-  # nodes <- nodes[which(!(nodes$name %in% carburants$french[which(colSums(Data_Emis_conso_parc[,vit,as.character(carburants$english)])==0)])),]
-  # carburants <- carburants[which(colSums(Data_Emis_conso_parc[,vit,carburants$english])!=0),]
+  
   links <- links[which(links$source %in% nodes$name & links$target %in% nodes$name),]
   
   CED_carburants <- ACV_carburants[c(3,1,4,6,5,8,7,2),c("NRJf","NRJn","NRJr")]
   CED_carburants <- rbind(CED_carburants,1000*Impacts_elec(Data_Mix_elec,ACV_electricity)[,c("NRJf","NRJn","NRJr")])
   rownames(CED_carburants) <- 13:21
   colnames(CED_carburants) <- 4:6
-  CED_carburants <- colSums(Data_Emis_conso_parc[,vit,as.character(carburants$english)])*CED_carburants/1000
+  
+  if(length(vit)==1) {conso_parc <- colSums(Data_Emis_conso_parc[,vit,as.character(carburants$english)])}
+  else {conso_parc <- apply(Data_Emis_conso_parc[,,as.character(carburants$english)],3,function(x) sum(x%*%as.matrix(coef_vit)))}
+  
+  CED_carburants <- conso_parc*CED_carburants/1000
   
   reservoir_carburants <- c(FC_CO2[as.character(carburants$english[c(-8,-9)]),"Energy.Content"],FC_CO2["CNG","Energy.Content"],3600)
-  reservoir_carburants <- reservoir_carburants*colSums(Data_Emis_conso_parc[,vit,as.character(carburants$english)])/1000
+  reservoir_carburants <- reservoir_carburants*conso_parc/1000
   
   masse_flotte <- sum(rowSums(Data_Parc_Utilisateur[,c("M_carros","M_moteur_ICE","M_moteur_Elec","M_batterie")])*Data_Parc_Utilisateur$Part)
   part_segment <- aggregate(Data_Parc_Utilisateur$Part,by = list(Data_Parc_Utilisateur$Segment),sum)
   surface_moy <- sum(surf_frontales[which(c("Mini","Small","Medium","Large") %in% as.character(part_segment$Group.1))]*part_segment[match(c("Mini","Small","Medium","Large"),as.character(part_segment$Group.1),nomatch = 0),"x"])
-  aero <- 0.5 * coef_frott$aero * coef_frott$Dens_air * surface_moy * ((as.numeric(vit)/3.6)^3) * (3600/as.numeric(vit)) /1000000
   roulement <- coef_frott$roul * 9.81 * masse_flotte / 1000
-  acceleration <- masse_flotte * (as.numeric(vit)/3.6) * accel_moy[vit,"acc"] * (3600/as.numeric(vit)) / 1000000
+  faero <- function(v) {return(0.5 * coef_frott$aero * coef_frott$Dens_air * surface_moy * ((as.numeric(v)/3.6)^3) * (3600/as.numeric(v)) /1000000)}
+  facc <- function(v) {return(masse_flotte * (as.numeric(v)/3.6) * accel_moy[v,"acc"] * (3600/as.numeric(v)) / 1000000)}
+  if(length(vit)==1) {
+    aero <- faero(vit)
+    acceleration <- facc(vit)
+  }
+  else {
+    aero <- sum(faero(vit)*coef_vit)
+    acceleration <- sum(facc(vit)*coef_vit)
+  }
   
   for(i in 1:nrow(links)) {
     if(links$IDtarget[i] %in% 13:21) {
@@ -762,13 +765,13 @@ sankey_energie <- function(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_c
   links$value[which(links$IDtarget == 5)] <- sum(links$value[which(links$IDsource == 5)])
   links$value[which(links$IDtarget == 6)] <- sum(links$value[which(links$IDsource == 6)])
   
-  links$value[which(links$IDtarget == 7)] <- sum(Data_Impacts_parc[,vit,"NRJf","Vehicule"])
-  links$value[which(links$IDtarget == 8)] <- sum(Data_Impacts_parc[,vit,"NRJn","Vehicule"])
-  links$value[which(links$IDtarget == 9)] <- sum(Data_Impacts_parc[,vit,"NRJr","Vehicule"])
+  links$value[which(links$IDtarget == 7)] <- sum(Data_Impacts_parc[,vit[1],"NRJf","Vehicule"])
+  links$value[which(links$IDtarget == 8)] <- sum(Data_Impacts_parc[,vit[1],"NRJn","Vehicule"])
+  links$value[which(links$IDtarget == 9)] <- sum(Data_Impacts_parc[,vit[1],"NRJr","Vehicule"])
   
-  links$value[which(links$IDtarget == 10)] <- sum(Data_Impacts_parc[,vit,"NRJf","Infrastructures"])
-  links$value[which(links$IDtarget == 11)] <- sum(Data_Impacts_parc[,vit,"NRJn","Infrastructures"])
-  links$value[which(links$IDtarget == 12)] <- sum(Data_Impacts_parc[,vit,"NRJr","Infrastructures"])
+  links$value[which(links$IDtarget == 10)] <- sum(Data_Impacts_parc[,vit[1],"NRJf","Infrastructures"])
+  links$value[which(links$IDtarget == 11)] <- sum(Data_Impacts_parc[,vit[1],"NRJn","Infrastructures"])
+  links$value[which(links$IDtarget == 12)] <- sum(Data_Impacts_parc[,vit[1],"NRJr","Infrastructures"])
   
   links$value[which(links$IDtarget == 1)] <- sum(links$value[which(links$IDsource == 1)])
   links$value[which(links$IDtarget == 2)] <- sum(links$value[which(links$IDsource == 2)])
@@ -779,7 +782,7 @@ sankey_energie <- function(Data_Impacts_parc, Data_Parc_Utilisateur, Data_Emis_c
   nodes$IDbis <- 0:(nrow(nodes)-1)
   links$IDsource <- nodes$IDbis[match(links$IDsource,nodes$ID)]
   links$IDtarget <- nodes$IDbis[match(links$IDtarget,nodes$ID)]
-  
+  gc()
   return(list(links=links, nodes=nodes))
 }
 
@@ -788,21 +791,22 @@ Aggreg_veh <- function(matrice, liste_aggreg, func) {
   temp <- aggregate(matrice, by = liste_aggreg, func)
   if(length(liste_aggreg)==1) {
     rownames(temp) <- temp[,1]
-    temp <- temp[,-1]
+    temp <- temp[,-1,drop=FALSE]
   } 
   if(length(liste_aggreg)==2) {
     rownames(temp) <- paste(temp[,1],temp[,2], sep = " ")
-    temp <- temp[,-(1:2)]
+    temp <- temp[,-(1:2),drop=FALSE]
   } 
   if(length(liste_aggreg)==3) {
     rownames(temp) <- paste(temp[,1],temp[,2],temp[,3], sep = " ")
-    temp <- temp[,-(1:3)]
+    temp <- temp[,-(1:3),drop=FALSE]
   }
   
-  temp <- temp[rowSums(temp) > 0 ,]
+  temp <- temp[rowSums(temp) > 0 ,,drop=FALSE]
   return(temp)
 }
 
+#rename various name into french understandable words
 renames_all <- function(A) {
   B <- recode(A, 
               "Gaz" = "Usage du véhicule", "Vehicule" = "Prod. véhicules", "Carburant" = "Prod. carburants","Vehicules" = "Prod. véhicules", "Carburants" = "Prod. carburants",
@@ -873,11 +877,13 @@ renames_all <- function(A) {
   return(B)
 }
 
+#fonction de tri (order) pour des listes plus petites
 tri_perso <- function(A,B) {
   C <- order(match(A,B))
   return(C)
 }
 
+#Met en rouge certaines valeurs dans les somme de tableaux de configuration de parcs (si la somme != 100%)
 TableFooter <- function(ncol,red_mark = c()) {
   if(length(red_mark)!=0) {
     javascript <- JS(
