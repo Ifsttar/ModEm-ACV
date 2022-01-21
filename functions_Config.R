@@ -307,7 +307,7 @@ Impacts_infra <- function(para_infra, ACV_infrastructures, detail = FALSE) {
   R_tunnel <- sum(1000*para_infra$dont.tunnel*para_infra$Utilisation*para_infra$Allocation/(365*para_infra$flux.moyen.journalier))
   R_pont <- sum(1000*para_infra$dont.pont*para_infra$Utilisation*para_infra$Allocation/(365*para_infra$flux.moyen.journalier))
   
-  impacts <- rbind((1000*para_infra$Utilisation*para_infra$nb.voies*para_infra$Allocation/(365*para_infra$flux.moyen.journalier))*slice(ACV_infrastructures,match(rownames(para_infra),rownames(ACV_infrastructures))),
+  impacts <- rbind((1000*para_infra$Utilisation*para_infra$nb.voies*para_infra$Allocation/(365*para_infra$flux.moyen.journalier))*dplyr::slice(ACV_infrastructures,match(rownames(para_infra),rownames(ACV_infrastructures))),
                    R_tunnel*filter(ACV_infrastructures,rownames(ACV_infrastructures)=="Tunnel"),R_pont*filter(ACV_infrastructures,rownames(ACV_infrastructures)=="Pont"))
   if(!detail) {return(colSums(impacts))}
   
@@ -395,12 +395,12 @@ Impacts_total <- function(parc, para_infra, para_elec, facteur_copert, list_impa
     temp_gaz <- array(emissions[,,rownames(ACV_gaz)],c(dim(emissions[,,rownames(ACV_gaz)]),ncol(subset(ACV_gaz,select = as.character(list_impacts$Abrev)))))
     temp_gaz <- temp_gaz*array(rep(unlist(subset(ACV_gaz,select = as.character(list_impacts$Abrev))),each = dim(temp_gaz)[1]*dim(temp_gaz)[2]), dim = dim(temp_gaz))
     dimnames(temp_gaz) <- list(1:nrow(parc),5:130,rownames(ACV_gaz),names(subset(ACV_gaz,select = as.character(list_impacts$Abrev))))
-    imp_gaz <- aperm(abind(CO2 = extract(temp_gaz,"CO2",dims=3),Particules = extract(temp_gaz,"PMTSP",dims=3)+extract(temp_gaz,"PM10",dims=3)+extract(temp_gaz,"PM2.5",dims=3), NOx =  extract(temp_gaz,"NOx",dims=3),
-                     NMVOV = extract(temp_gaz,"VOC",dims=3), Autres = extract(temp_gaz,"CO",dims=3)+extract(temp_gaz,"CH4",dims=3)+extract(temp_gaz,"N2O",dims=3)+extract(temp_gaz,"NH3",dims=3),along = 3,make.names = TRUE),c(1,2,4,3))
+    imp_gaz <- aperm(abind(CO2 = R.utils::extract(temp_gaz,"CO2",dims=3),Particules = R.utils::extract(temp_gaz,"PMTSP",dims=3)+R.utils::extract(temp_gaz,"PM10",dims=3)+R.utils::extract(temp_gaz,"PM2.5",dims=3), NOx =  R.utils::extract(temp_gaz,"NOx",dims=3),
+                     NMVOV = R.utils::extract(temp_gaz,"VOC",dims=3), Autres = R.utils::extract(temp_gaz,"CO",dims=3)+R.utils::extract(temp_gaz,"CH4",dims=3)+R.utils::extract(temp_gaz,"N2O",dims=3)+R.utils::extract(temp_gaz,"NH3",dims=3),along = 3,make.names = TRUE),c(1,2,4,3))
     dimnames(imp_gaz)[[4]] <- c("CO2","Particules","NOx","NMVOV","Autres")
-    imp_gaz[,,,"Particules"] <- extract(imp_gaz,"Particules",dims=4) + aperm(replicate(1,replicate(nrow(parc),as.matrix(NonExhaustPM[,c("PM_tyre","PM_break")]/1000)%*%as.matrix(subset(ACV_particules,select = as.character(list_impacts$Abrev))),simplify = "array"),simplify = "array"),c(3,1,2,4))				
-    imp_gaz[,,,"NMVOV"] <- extract(imp_gaz,"NMVOV",dims=4) + replicate(1,multiply_matrice(emissions[,,"NMVOC"],slice(subset(ACV_NMVOC,select = as.character(list_impacts$Abrev)),match(parc$Fuel,rownames(ACV_NMVOC)))),simplify = "array")
-    imp_gaz[,,,"Autres"] <- extract(imp_gaz,"Autres",dims=4) + replicate(1,Calcul_matrice(consommation[,,rownames(ACV_fuel_metal)],subset(ACV_fuel_metal,select = as.character(list_impacts$Abrev)))
+    imp_gaz[,,,"Particules"] <- R.utils::extract(imp_gaz,"Particules",dims=4) + aperm(replicate(1,replicate(nrow(parc),as.matrix(NonExhaustPM[,c("PM_tyre","PM_break")]/1000)%*%as.matrix(subset(ACV_particules,select = as.character(list_impacts$Abrev))),simplify = "array"),simplify = "array"),c(3,1,2,4))				
+    imp_gaz[,,,"NMVOV"] <- R.utils::extract(imp_gaz,"NMVOV",dims=4) + replicate(1,multiply_matrice(emissions[,,"NMVOC"],slice(subset(ACV_NMVOC,select = as.character(list_impacts$Abrev)),match(parc$Fuel,rownames(ACV_NMVOC)))),simplify = "array")
+    imp_gaz[,,,"Autres"] <- R.utils::extract(imp_gaz,"Autres",dims=4) + replicate(1,Calcul_matrice(consommation[,,rownames(ACV_fuel_metal)],subset(ACV_fuel_metal,select = as.character(list_impacts$Abrev)))
     + aperm(replicate(126,as.matrix(ACV_othersPollutants[match(paste(parc$Fuel,parc$Euro.Standard, sep = "_"),paste(ACV_othersPollutants[,1],ACV_othersPollutants[,2], sep = "_")),-c(1,2)][,as.character(list_impacts$Abrev)]),simplify = "array"),c(1,3,2)),simplify = "array")
   } else {
     #impacts gaz principaux
