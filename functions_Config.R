@@ -658,7 +658,7 @@ multi_select <- function(A,B,signe = '+',dim) {
   
   if(all(C == 0)){return(A)}
   else {
-    return(extract(A,C,dims=dim))
+    return(R.utils::extract(A,C,dims=dim))
   }
 }
 
