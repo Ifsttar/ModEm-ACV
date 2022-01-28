@@ -1,4 +1,3 @@
-library(shiny)
 
 shinyServer(function(input, output, session) {
 
@@ -11,7 +10,7 @@ shinyServer(function(input, output, session) {
  Parc_utilisateur <- do.call("reactiveValues",(Parc_utilisateur  %>% lapply(function(i) select(i,-RedNOxEuro6,-M_carros,-M_moteur_ICE,-M_moteur_Elec,-M_batterie,-DV_veh,-DV_batterie))))
  
  
- list_choix_parcs <- reactiveValues(choix = c("France 2020" = "FR2020","Ile de France 2010" = "EGT2010","Aire urbaine de Lyon 2015" = "Lyon2015"))
+ list_choix_parcs <- reactiveValues(choix = c("France 2020" = "FR2020","Ile de France 2010" = "EGT2010","Aire urbaine de Lyon 2015" = "Lyon2015", "France 2010" = "FR2010", "France 2030" = "FR2030"))
 
  REACT_Parc_utilisateur <- reactiveVal()
  REACT_Parc_utilisateur(isolate(Parc_utilisateur[["FR2020"]]))

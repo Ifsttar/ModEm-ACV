@@ -1,9 +1,3 @@
-library(shinydashboard)
-library(shinycssloaders)
-library(shinyWidgets)
-library(shinydashboardPlus)
-library(shiny)
-library(shinyjs)
 source("libraries.R")
 source("functions_Config.R")
 source("Chargement_data.R")
@@ -85,7 +79,9 @@ ui <-
                                                                  choices = c(
                                                                    "France 2020" = "FR2020",
                                                                    "Ile de France 2010" = "EGT2010",
-                                                                   "Aire urbaine de Lyon 2015" = "Lyon2015")
+                                                                   "Aire urbaine de Lyon 2015" = "Lyon2015",
+                                                                   "France 2010" = "FR2010",
+                                                                   "France 2030" = "FR2030")
                                                                )
                                                              )
                                                              )
@@ -103,7 +99,9 @@ ui <-
                                                                         choices = c(
                                                                           "France 2020" = "FR2020",
                                                                           "Ile de France 2010" = "EGT2010",
-                                                                          "Aire urbaine de Lyon 2015" = "Lyon2015")
+                                                                          "Aire urbaine de Lyon 2015" = "Lyon2015",
+                                                                          "France 2010" = "FR2010",
+                                                                          "France 2030" = "FR2030")
                                                                       )
                                                                )
                                                              )

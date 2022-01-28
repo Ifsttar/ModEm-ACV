@@ -12,7 +12,11 @@ if(importer == "non") {  load("data/para_defaut.RData")  }
 rm(importer)
 
 #chargement des parcs prédéfinis
-Parc_utilisateur <- list(EGT2010 = read.xlsx("data/Parc_EGT2010_arrondi.xlsx"), Lyon2015 = read.xlsx("data/Parc_Lyon2015.xlsx"), FR2020 = read.xlsx("data/Parc_FR2020.xlsx"))
+Parc_utilisateur <- list(EGT2010 = read.xlsx("data/Parc_EGT2010_arrondi.xlsx"), 
+                         Lyon2015 = read.xlsx("data/Parc_Lyon2015.xlsx"), 
+                         FR2020 = read.xlsx("data/Parc_FR2020.xlsx"),
+                         FR2010 = read.xlsx("data/Parc_FR2010.xlsx"),
+                         FR2030 = read.xlsx("data/Parc_FR2030.xlsx"))
 #Chargement des donnees brutes pre-traitees
 load("data/data_ini.RData")
 
